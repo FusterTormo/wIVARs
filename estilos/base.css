@@ -31,12 +31,28 @@ section#buscar {
 	text-align: right;
 }
 
+input {
+	border: 1px solid #6CC24A;
+	padding: 5px;
+	margin-right: 5px;
+	box-shadow: 5px 5px 5px #777777;
+}
+
 /*Estilo tabla principal*/
 section#tabla {
-	width: 100%;
+	width: 99%;
 	display: flex-table;
 	margin-left: 0.5%;
 	margin-bottom: 10px;
+	
+}
+
+.fixe {
+	position: fixed;
+	top: 0;
+	width: 99%;
+	background-color: #FFFFFF;
+	box-shadow: 0 10px 6px -6px #777777;
 }
 
 .negreta {
@@ -53,10 +69,18 @@ section#tabla {
 	border-bottom: 1px solid #00C1D5;
 }
 
+#cabecera {
+	border-bottom: 1px solid #00C1D5;
+}
+
 .celda {
-	width: 11%;
+	width: 8%;
 	padding: 4px 6px;
 	float: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: default;
 }
 
 .fila::after {
