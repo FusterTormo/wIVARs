@@ -28,14 +28,68 @@ h1 {
 /*Estilo funcionalidades: buscar y filtrar*/
 section#buscar {
 	padding: 15px;
-	text-align: right;
+	float: right;
+	display: inline;
 }
 
-input {
+section#buscar input {
 	border: 1px solid #6CC24A;
 	padding: 5px;
 	margin-right: 5px;
 	box-shadow: 5px 5px 5px #777777;
+}
+
+section#filtrar {
+	padding: 15px;
+	text-align: left;
+}
+
+section#filtrar button {
+	border: 1px solid #00C1D5;
+	background-color: #00C1D5;
+	padding: 5px 20px;
+	cursor: pointer;
+	color: #FFFFFF;
+	transition-duration: 0.3s;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+section#filtrar button:hover {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+section#filtrar button:active {
+	box-shadow: none;
+}
+
+section#filtrar button.abierto {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+#filtros {
+	margin-top: 10px;
+	display: none;
+}
+
+#filtros ul {
+	column-count: 12;
+	list-style-type: none;
+}
+
+#filtros ul li {
+	padding: 5px;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#filtros ul li.selected {
+	background-color: #00C1D5;
+	color: #FFFFFF;
 }
 
 /*Estilo tabla principal*/
@@ -74,8 +128,8 @@ section#tabla {
 }
 
 .celda {
-	width: 8%;
-	padding: 4px 6px;
+	width: 7.5%;
+	padding: 8px 6px;
 	float: left;
 	white-space: nowrap;
 	overflow: hidden;
