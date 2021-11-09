@@ -23,7 +23,17 @@ function leerVariantes($usuario) {
     return $tabla;
 }
 
+/**
+ * Preguntar a la base de datos cuantas muestras hay guardados en la base de datos
+ * @param string $usuario Tipo de usuario que pide la informacion
+ * @return int Numero de muestras que hay en la base de datos con dicha informacion
+ */
 function contarPacientes($usuario) {
     return getTotalMuestras($usuario);
+}
+
+function validar($usuario, $contrasena) {
+    $cn = getPw($usuario);
+    return password_verify($contrasena, $cn);
 }
 ?>
