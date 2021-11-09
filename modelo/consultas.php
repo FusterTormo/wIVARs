@@ -9,7 +9,6 @@
 define("SERVIDOR", "localhost");
 define("USUARIO", "ffuster");
 define("CONTRASENA", "Aetaeb6e");
-define("BD", "ALLvar");
 
 
 /**
@@ -19,7 +18,8 @@ define("BD", "ALLvar");
  */
 function getVariantes($usuario)
 {
-    $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA,BD);
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA, $bd);
     if($dbcon->connect_errno > 0) {
         $resultado = "No se puede conectar a la base de datos";
     }
@@ -52,7 +52,8 @@ function getVariantes($usuario)
  */
 function getTotalMuestras($usuario) {
     $resultado = "";
-    $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA,BD);
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA,$bd);
     if($dbcon->connect_errno > 0) {
         $resultado = "No se puede conectar a la base de datos";
     }
@@ -68,13 +69,54 @@ function getTotalMuestras($usuario) {
 
 function getUnaMuestra($usuario, $id) {
     $resultado = "";
-    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, BD);
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, $bd);
     if ($dbcon->connect_errno > 0 ) {
         $resultado = "No se puede conectar a la base de datos";
     }
     else {
         $consulta = $dbcon->query("SELECT * FROM variant v JOIN run r ON r.id_variant=v.id WHERE id=$id;");
         //TODO continuar la consulta per recollir una mostra completa
+    }
+    $dbcon->close();
+    return $resultado;
+}
+
+function getPw($usuario) {
+    $resultado = "";
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, "UsuariosVar");
+    if ($dbcon->connect_errno > 0) {
+        $resultado = "No se puede conectar a la base de datos";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT contrasena FROM usuario WHERE nombre='$usuario'");
+        if ($consulta->num_rows == 0)
+            $resultado = "No existe";
+        else {
+            $aux = $consulta->fetch_assoc();
+            $resultado = $aux["contrasena"];
+        }
+    }
+    $dbcon->close();
+    return $resultado;
+}
+
+function getBD($usuario) {
+    $resultado = "";
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, "UsuariosVar");
+    if ($dbcon->connect_errno > 0) {
+        error_log("ERROR: No se pudo conectar a la base de datos desde getBD");
+        $resultado = "";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT base_datos FROM usuario WHERE nombre='$usuario'");
+        if ($consulta->num_rows == 0) {
+            $resultado = "No existe";
+        }
+        else {
+            $aux = $consulta->fetch_assoc();
+            $resultado = $aux["base_datos"];
+        }
     }
     $dbcon->close();
     return $resultado;
