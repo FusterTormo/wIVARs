@@ -1,0 +1,32 @@
+section {
+	margin: 40px auto;
+	width: 20%;
+	padding: 20px;
+	text-align: center;
+}
+
+p {
+	margin: 10px 0 0;
+	text-align: left;
+}
+
+input {
+	padding: 10px;
+	border: 1px solid #6CC24A;
+	display: block;
+	width: 100%;
+}
+
+button {
+	border: 0;
+	background-color: #00C1D5;
+	color: #FFFFFF;
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 8px;
+	margin-top: 10px;
+}
+
+button:active {
+	padding: 13px;
+}
