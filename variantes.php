@@ -1,4 +1,7 @@
-<?php include_once 'presentador/presenter.php'; 
+<?php 
+include_once 'presentador/presenter.php';
+include_once 'lib.php';
+
 session_start();
 
 if (isset($_SESSION["u"])) {
@@ -21,7 +24,7 @@ if (isset($_SESSION["u"])) {
 <body onload="leerVariantes('<?php print $_SESSION["u"] ?>')">
 	<header><h1>Variants found in <?php print $totalMuestras ?> sampes</h1></header>
 	<nav>
-	<!-- Fer una barra de navegacio amb les distintes pagines que es poden visitar segons la base de dades que es busque -->
+		<?php getNavigationBar($_SESSION["u"]); ?>
 	</nav>
 	<section id="buscar">
 		<form>
@@ -30,45 +33,27 @@ if (isset($_SESSION["u"])) {
 		</form>
 	</section>
 	<section id="filtrar">
-		<button type="button">Filtrar</button>
+		<button type="button">Filter</button>
 		<div id="filtros">
-			Por gen
-			<div id="genes"><ul><li>Ver todos</li><li>Ocultar todos</li></ul></div>
-			Por variante
-			<div id="variantes"><ul><li>Ver todos</li><li>Ocultar todos</li></ul></div>
-			Por MAF
-			<div id="mafs"><ul><li>Ver todos</li><li>Ocultar todos</li></ul></div>
-			Por n&uacute;mero de casos
-			<div id="casos"><ul><li>Ver todos</li><li>Ocultar todos</li></ul></div>
+			By gene
+			<div id="genes"><ul><li>View all</li><li>Hide all</li></ul></div>
+			By variant
+			<div id="variantes"><ul><li>View all</li><li>Hide all</li></ul></div>
+			By MAF
+			<div id="mafs"><ul><li>View all</li><li>Hide all</li></ul></div>
+			By cases reported
+			<div id="casos"><ul><li>View all</li><li>Hide all</li></ul></div>
 		</div>
 	</section>
-	<!--  <header class="negreta centrat titol">Lista de variantes</header>-->
 	<!-- Por lo leido, las barras de progreso no estan muy estandarizadas, aunque html5 tenga la etiqueta progress. Mejor hacer una con css y javascript -->
 	<section id="progressBar">
-		<div id="verbBarra">Recogiendo informaci&oacute;n</div>
+		<div id="verbBarra">Getting information</div>
 		<div id="barra">
 			<div id="progreso"></div>
 		</div>
 	</section>
 	<section id="tabla">
-		<div class="fila" id="cabecera">
-			<?php /*
-			$cabecera = array_shift($variantes);
-			foreach ($cabecera as $c) {
-			    print "<div class='negreta celda'>$c</div>";
-			}
-			?>
-    	</div>
-    		<?php
-    		foreach ($variantes as $var) {
-    		    print "<div class='fila'>";
-    		    foreach ($var as $v) {
-    		        print "<div class='celda' title='$v'>$v</div>";
-    		    }
-    		    print "</div>";
-    		}*/
-    		?>
-    		</div>
+		<div class="fila" id="cabecera"></div>
 	</section>
 	<footer></footer>
 </body>

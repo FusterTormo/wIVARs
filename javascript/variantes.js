@@ -46,14 +46,14 @@ $(document).ready(function(){
 		cargarFiltros();
 		$("#filtros ul li").on("click", function(){
 			var ul = $(this).parent("ul");
-			if ($(this).text() == "Ocultar todos") {
+			if ($(this).text() == "Hide all") {
 				ul.find("li").each(function(){
 					$(this).removeClass("selected");
 				});
 			}
-			else if ($(this).text() == "Ver todos") {
+			else if ($(this).text() == "View all") {
 				ul.find("li").each(function(){
-					if ($(this).text() != "Ver todos" && $(this).text() != "Ocultar todos")
+					if ($(this).text() != "View all" && $(this).text() != "Hide all")
 						$(this).addClass("selected");
 				});
 			}
@@ -122,7 +122,7 @@ function leerVariantes(usuario) {
 		data : {"contar" : true, "usuario" : usuario},
 		datatype : "html"
 	}).done(function(data){
-		$("#verbBarra").html("Recogiendo " + data + " variantes");
+		$("#verbBarra").html("Getting " + data + " variants");
 		total = data;
 		var actual = 0;
 		var tope = 1000;
@@ -159,7 +159,7 @@ function leerVariantes(usuario) {
 			});
 			actual += tope;
 		}
-		$("#verbBarra").html("Montando la tabla de variantes. Espera un momento");
+		$("#verbBarra").html("Filling variants table. Please wait...");
 	});	
 }
 
