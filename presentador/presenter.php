@@ -43,4 +43,8 @@ function validar($usuario, $contrasena) {
 function getPral($usuario) {
     return getPagPrincipal($usuario);
 }
+
+function getBase($usuario) {
+    return getBD($usuario);
+}
 ?>
