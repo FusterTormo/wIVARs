@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["u"])) {
-    $variantes = leerVariantes($_SESSION["u"]);
+    //$variantes = leerVariantes($_SESSION["u"], 0, 1000);
     $totalMuestras = contarPacientes($_SESSION["u"]);
 
 ?>
@@ -18,15 +18,15 @@ if (isset($_SESSION["u"])) {
 	<script src="javascript/variantes.js"></script>
 	
 </head>
-<body>
-	<header><h1>Variantes encontradas en <?php print $totalMuestras ?> pacientes</h1></header>
+<body onload="leerVariantes('<?php print $_SESSION["u"] ?>')">
+	<header><h1>Variants found in <?php print $totalMuestras ?> sampes</h1></header>
 	<nav>
 	<!-- Fer una barra de navegacio amb les distintes pagines que es poden visitar segons la base de dades que es busque -->
 	</nav>
 	<section id="buscar">
 		<form>
-			<input type="text" name="buscar_gen" placeholder="Buscar gen">
-			<input type="text" name="buscar_pos" placeholder="Buscar posicion de inicio">
+			<input type="text" name="buscar_gen" placeholder="Search gene">
+			<input type="text" name="buscar_pos" placeholder="Search initial position">
 		</form>
 	</section>
 	<section id="filtrar">
@@ -43,9 +43,16 @@ if (isset($_SESSION["u"])) {
 		</div>
 	</section>
 	<!--  <header class="negreta centrat titol">Lista de variantes</header>-->
+	<!-- Por lo leido, las barras de progreso no estan muy estandarizadas, aunque html5 tenga la etiqueta progress. Mejor hacer una con css y javascript -->
+	<section id="progressBar">
+		<div id="verbBarra">Recogiendo informaci&oacute;n</div>
+		<div id="barra">
+			<div id="progreso"></div>
+		</div>
+	</section>
 	<section id="tabla">
 		<div class="fila" id="cabecera">
-			<?php 
+			<?php /*
 			$cabecera = array_shift($variantes);
 			foreach ($cabecera as $c) {
 			    print "<div class='negreta celda'>$c</div>";
@@ -59,10 +66,11 @@ if (isset($_SESSION["u"])) {
     		        print "<div class='celda' title='$v'>$v</div>";
     		    }
     		    print "</div>";
-    		}
+    		}*/
     		?>
+    		</div>
 	</section>
-	<footer></footer>>
+	<footer></footer>
 </body>
 </html>
 <?php 

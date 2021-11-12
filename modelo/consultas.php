@@ -16,7 +16,7 @@ define("CONTRASENA", "Aetaeb6e");
  * @param string $usuario Identificador de usuario que accede a la base de datos. Se usa para seleccionar que base de datos abrir
  * @return string
  */
-function getVariantes($usuario)
+function getVariantes($usuario, $inicio = 0, $filas = 1000)
 {
     $bd = getBD($usuario);
     $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA, $bd);
@@ -24,7 +24,7 @@ function getVariantes($usuario)
         $resultado = "No se puede conectar a la base de datos";
     }
     else {
-        $consulta = $dbcon->query("SELECT id, cromosoma, inicio, fin, referencia, observado, gen, tipo_var, tipo_ex, hgvs_prot, dbsnp, cosmic, maf FROM variant");
+        $consulta = $dbcon->query("SELECT id, cromosoma, inicio, fin, referencia, observado, gen, tipo_var, tipo_ex, transcrito, hgvs_prot, dbsnp, cosmic, maf FROM variant LIMIT $inicio, $filas");
         $resultado = array();
         $it = 0;
         foreach ($consulta as $r) {
@@ -39,9 +39,24 @@ function getVariantes($usuario)
             $resultado[$it]["Reported"] = $aux["veces"] . " time(s)";
             $it++;
         }
+        $dbcon->close();
     }
-    $dbcon->close();
-    
+    return $resultado;
+}
+
+function getNumeroVariantes($usuario) {
+    $resultado = "";
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA,$bd);
+    if($dbcon->connect_errno > 0) {
+        $resultado = "No se puede conectar a la base de datos";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT count(*) total FROM variant");
+        $aux = $consulta->fetch_assoc();
+        $resultado = $aux["total"];
+        $dbcon->close();
+    }
     return $resultado;
 }
 
@@ -55,15 +70,14 @@ function getTotalMuestras($usuario) {
     $bd = getBD($usuario);
     $dbcon = new mysqli(SERVIDOR,USUARIO,CONTRASENA,$bd);
     if($dbcon->connect_errno > 0) {
-        $resultado = "No se puede conectar a la base de datos";
+        $resultado = "Cannot connect to database";
     }
     else {
         $consulta = $dbcon->query("SELECT count(*) total FROM mostra");
         $aux = $consulta->fetch_assoc();
         $resultado = $aux["total"];
+        $dbcon->close();
     }
-    
-    $dbcon->close();
     return $resultado;
 }
 
@@ -72,13 +86,13 @@ function getUnaMuestra($usuario, $id) {
     $bd = getBD($usuario);
     $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, $bd);
     if ($dbcon->connect_errno > 0 ) {
-        $resultado = "No se puede conectar a la base de datos";
+        $resultado = "Cannot connect to database";
     }
     else {
         $consulta = $dbcon->query("SELECT * FROM variant v JOIN run r ON r.id_variant=v.id WHERE id=$id;");
         //TODO continuar la consulta per recollir una mostra completa
+        $dbcon->close();
     }
-    $dbcon->close();
     return $resultado;
 }
 
@@ -86,7 +100,7 @@ function getPw($usuario) {
     $resultado = "";
     $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, "UsuariosVar");
     if ($dbcon->connect_errno > 0) {
-        $resultado = "No se puede conectar a la base de datos";
+        $resultado = "Cannot connect to database";
     }
     else {
         $consulta = $dbcon->query("SELECT contrasena FROM usuario WHERE nombre='$usuario'");
@@ -96,8 +110,8 @@ function getPw($usuario) {
             $aux = $consulta->fetch_assoc();
             $resultado = $aux["contrasena"];
         }
+        $dbcon->close();
     }
-    $dbcon->close();
     return $resultado;
 }
 
@@ -111,14 +125,34 @@ function getBD($usuario) {
     else {
         $consulta = $dbcon->query("SELECT base_datos FROM usuario WHERE nombre='$usuario'");
         if ($consulta->num_rows == 0) {
-            $resultado = "No existe";
+            $resultado = "Not found";
         }
         else {
             $aux = $consulta->fetch_assoc();
             $resultado = $aux["base_datos"];
         }
+        $dbcon->close();
     }
-    $dbcon->close();
+    return $resultado;
+}
+
+function getPagPrincipal($usuario) {
+    $resultado = "";
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, "UsuariosVar");
+    if ($dbcon->connect_errno > 0) {
+        $resultado = "Cannot connect to database";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT pag_pral FROM usuario WHERE nombre='$usuario'");
+        if ($consulta->num_rows == 0) {
+            $resultado = "Not found user";
+        }
+        else {
+            $aux = $consulta->fetch_assoc();
+            $resultado = $aux["pag_pral"];
+        }
+        $dbcon->close();
+    }
     return $resultado;
 }
 ?>

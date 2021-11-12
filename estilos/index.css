@@ -30,3 +30,24 @@ button {
 button:active {
 	padding: 13px;
 }
+
+section#bloqueo {
+	margin: 40px auto;
+	width: 20%;
+	padding: 20px;
+	border: 1px solid red;
+	box-shadow: 2px 2px 12px red;
+}
+
+section#bloqueo h2 {
+	text-align: left;
+	magin-bottom: 10px;
+	font-size: 1.5vw;
+	color: #000000;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}

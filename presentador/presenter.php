@@ -6,12 +6,15 @@ include_once 'modelo/consultas.php';
  * @param string $usuario Tipo de usuario que pide la informacion. Se pasa al modelo para que elija que la base de datos de la que extraera la informacion
  * @return array[] Array de dos dimensiones con la informacion que ha devuelto el modelo
  */
-function leerVariantes($usuario) {
-    $datos = getVariantes($usuario);
+function leerVariantes($usuario, $inicio, $fin) {
+    $datos = getVariantes($usuario, $inicio, $fin);
     $tabla = array();
+    $it = 0;
     if (is_array($datos)) {
-        $tabla[0] = array_keys($datos[0]); // La primera fila de la tabla contendra la cabecera de la tabla
-        $it = 1;
+        if ($inicio == 0) {
+            $tabla[0] = array_keys($datos[0]); // La primera fila de la tabla contendra la cabecera de la tabla
+            $it = 1;
+        }
         foreach ($datos as $fila) {
             $tabla[$it] = array_values($fila);
             $it ++;
@@ -35,5 +38,9 @@ function contarPacientes($usuario) {
 function validar($usuario, $contrasena) {
     $cn = getPw($usuario);
     return password_verify($contrasena, $cn);
+}
+
+function getPral($usuario) {
+    return getPagPrincipal($usuario);
 }
 ?>

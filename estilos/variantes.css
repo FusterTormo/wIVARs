@@ -65,6 +65,28 @@ section#filtrar button.abierto {
 	color: #FFFFFF;
 }
 
+/*Estilos barra de progreso*/
+#barra {
+	width: 99%;
+	background-color: #DDDDDD;
+	height: 40px;
+	line-height: 40px; /*Para centrar el contenido de la barra de progreso*/
+	margin: auto;
+}
+
+#verbBarra {
+	width: 99%;
+	text-align: center;
+	margin: auto;
+}
+
+#progreso {
+	background-color: #6CC24A;
+	color: #FFFFFF;
+	height: 40px;
+	width: 0%;
+}
+
 /*Estilo tabla principal*/
 section#tabla {
 	width: 99%;
@@ -84,6 +106,7 @@ section#tabla {
 
 .negreta {
 	font-weight: bold;
+	cursor: pointer;
 }
 
 .centrat {
