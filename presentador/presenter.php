@@ -47,4 +47,36 @@ function getPral($usuario) {
 function getBase($usuario) {
     return getBD($usuario);
 }
+
+function getTituloVariante($usuario, $id) {
+    $datos = getUnaVariante($usuario, $id);
+    if ($datos[0]["HGVS"] != "NA") {
+        return $datos[0]["Chrom"] . ":g." . $datos[0]["Start"] . $datos[0]["Ref"] . ">"  .$datos[0]["Alt"] .  " (" . $datos[0]["Gene"] . "-" . $datos[0]["HGVS"] . ")";
+    }
+    else {
+        return $datos[0]["Chrom"] . ":g." . $datos[0]["Start"] . $datos[0]["Ref"] . ">"  .$datos[0]["Alt"] .  " (" . $datos[0]["Gene"] . ")";
+    }
+}
+
+function leerRuns($usuario, $id) {
+    $datos = getUnaVariante($usuario, $id);
+    $tabla = array();
+    $it = 0;
+    if (is_array($datos)) {
+        $tabla[0] = array("Sample_ID", "VAF", "General", "Ref.", "Alt.", "Ref.FW", "Ref.RV", "Alt.FW", "Alt.RV", "Filter", "Info");
+        foreach ($datos as $fila) {
+            $it ++;
+            $tabla[$it] = array($fila["sampID"], $fila["VAF"], $fila["Gen."], $fila["Ref."], $fila["Alt."], $fila["ref_FW"], $fila["ref_RV"], $fila["alt_FW"], $fila["alt_RV"], $fila["Filter"], 
+                $fila["Oth_info"]);
+        }
+    }
+    else {
+        $tabla[0] = $datos;
+    }
+    return $tabla;
+}
+
+function leerMuestra($usuario, $id) {
+    $datos = getUnaMuestra($usuario, $id);
+}
 ?>
