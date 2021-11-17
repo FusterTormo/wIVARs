@@ -1,7 +1,6 @@
 <?php 
 
 include_once '../modelo/consultas.php';
-include_once '../presentador/presenter.php';
 
 if (isset($_POST["contar"]) && isset($_POST["usuario"])) {
     print getNumeroVariantes($_POST["usuario"]);
@@ -26,5 +25,9 @@ elseif (isset($_POST["dameVariantes"]) && isset($_POST["usuario"])) {
     print json_encode($tabla);
 }
 
+if (isset($_POST["getOneVariant"])) {
+    $datos = getFullVariante($_POST["usuario"], $_POST["cromosoma"], $_POST["inicio"], $_POST["observado"]);
+    print json_encode($datos);
+}
 
 ?>

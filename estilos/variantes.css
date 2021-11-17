@@ -130,11 +130,77 @@ section#tabla {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	cursor: default;
+	cursor: pointer;
 }
 
 .fila::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.modal {
+	display: none; 
+	position: fixed;
+	left: 0; 
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+	background-color: #FFFFFF;
+	margin: 5% auto;
+	width: 70%;
+	border: 2px solid #6CC24A;
+	padding: 5px;
+	box-shadow: 5px 5px 5px #777777;
+}
+
+.modal .close {
+	float: right;
+	color: #aaaaaa;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.modal .close:hover, .modal .close:focus {
+	color: #000000;
+	cursor: pointer;
+}
+
+.modal p {
+	padding: 15px;
+	display: table;
+}
+
+.modal h2 {
+	color: #6CC24A;
+	text-decoration: underline; 
+}
+
+.modal a, .modal a:visited {
+	color: #00C1D5;
+	text-decoration: none;
+}
+
+.modal a:hover {
+	text-decoration: underline;
+}
+
+.modal .filatab {
+	display: table-row;
+}
+
+.modal .celdatab {
+	display: table-cell;
+	padding: 5px;
+}
+
+.modal .key {
+	font-weight: bold;
+	vertical-align: top;
 }

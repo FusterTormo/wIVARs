@@ -12,7 +12,7 @@ if (isset($_SESSION["u"])) {
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Variantes encontradas</title>
+	<title>Variants table</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="estilos/base.css"> 
@@ -22,13 +22,14 @@ if (isset($_SESSION["u"])) {
 	
 </head>
 <body onload="leerVariantes('<?php print $_SESSION["u"] ?>')">
-	<header><h1>Variants found in <?php print $totalMuestras ?> sampes</h1></header>
+	<input type="hidden" id="nomUsuario" readonly="readonly" value="<?php print $_SESSION["u"]?>">
+	<header><h1>Variants found in <?php print $totalMuestras ?> samples</h1></header>
 	<nav>
 		<?php getNavigationBar($_SESSION["u"]); ?>
 	</nav>
 	<section id="buscar">
 		<form>
-			<input type="text" name="buscar_gen" placeholder="Search gene">
+			<input type="text" autocapitalize="words" placeholder="Search gene">
 			<input type="text" name="buscar_pos" placeholder="Search initial position">
 		</form>
 	</section>
@@ -54,6 +55,12 @@ if (isset($_SESSION["u"])) {
 	</section>
 	<section id="tabla">
 		<div class="fila" id="cabecera"></div>
+	</section>
+	<section class="modal" id="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p></p>
+		</div>
 	</section>
 	<footer></footer>
 </body>

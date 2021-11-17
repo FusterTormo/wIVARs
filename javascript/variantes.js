@@ -1,12 +1,15 @@
 $(document).ready(function(){
-	$(document).ajaxStop(function(){
-		//Mostrar la tabla de variantes una vez se han cargado los datos
+	$("input").not("[type=hidden]").val(""); //El nombre del usuario que ha iniciado sesion se guarda en un campo escondido para usarlo en eventos
+	
+	$(document).on("ajaxStop", function(){
+		//Eliminar este evento para que no haya recursividad en la siguientes llamadas AJAX que se hagan luego en la pagina
+		$(document).off("ajaxStop");
+		//Mostrar la tabla de variantes y ordenarla una vez se han cargado los datos
 		ordenarTabla(1);
 		$("#tabla").show();
 		$("#progressBar").hide();
-		//Asignar los eventos de la pagina
-		$("input").val("");
 		
+		//Asignar los eventos de la pagina
 		//Eventos del formulario para buscar genes o posiciones. Esconde las filas que no cumplen la condicion
 		$("input[name=buscar_gen]").on("keyup",function(){
 			$("input[name=buscar_gen]").val($("input[name=buscar_gen]").val().toUpperCase());
@@ -105,6 +108,36 @@ $(document).ready(function(){
 			
 			if (columna > -1)
 				ordenarTabla(columna);
+		});
+		
+		//Mostrar toda la informacion de la variante en un modal
+		$(".fila").not("#cabecera").on("click", function(){
+			var chr = $(this).find(".celda").eq(0).html();
+			var start = $(this).find(".celda").eq(1).html();
+			var alt = $(this).find(".celda").eq(4).html();
+			var usuario = $("#nomUsuario").val();
+			//Recoger la informacion de la variante por AJAX
+			$.ajax({
+				method : "post",
+				url : "presentador/getVariantes.php",
+				data : {"getOneVariant" : true, "usuario" : usuario, "cromosoma" : chr, "inicio" : start, "observado" : alt},
+				datatype : "jsonp"
+			}).done(function(data){
+				var tab = JSON.parse(data);
+				var htm = "<h2>Variant information</h2>";
+				$("#modal").show();
+				for (k in tab) {
+					if (k != "Id")
+						htm += "<div class='filatab'><div class='key celdatab'>" + k + "</div><div class='val celdatab'>" + tab[k] + "</div></div>";
+				}
+				htm += "<div class='filatab'><div class='key celdatab'>Samples associated</div><div class='val celdatab'><a href='varsXrun.php?varID=" + tab["Id"] + "' target='_blank'>View samples</a></div></div>"; 
+				$("#modal p").html(htm);
+			});
+		});
+		
+		//Boton para cerrar el modal
+		$("#modal .close").on("click", function(){
+			$("#modal").hide();
 		});
 		
 		//Pintar las filas impares de la tabla de otro color (zebra table)
