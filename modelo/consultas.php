@@ -60,6 +60,50 @@ function getNumeroVariantes($usuario) {
     return $resultado;
 }
 
+function getUnaVariante($usuario, $id) {
+    $resultado = "";
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, $bd);
+    if ($dbcon->connect_errno > 0) {
+          $resultado = "No se puede conectar a la base de datos";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT * FROM variant v JOIN run r ON r.id_variant=v.id WHERE id=$id");
+        $resultado = array();
+        $it = 0;
+        foreach ($consulta as $r) {
+            $resultado[$it] = array("Chrom" => $r["cromosoma"], "Start" => $r["inicio"], "Fin" => $r["fin"], "Ref" => $r["referencia"], "Alt" => $r["observado"],  "Gene" => $r["gen"],
+                "HGVS" => $r["hgvs_prot"], "Variant" => $r["tipo_ex"], "sampID" => $r["id_mostra"], "Gen." => $r["coverage"], "Ref." => $r["cov_ref"], "Alt." => $r["cov_alt"], 
+                "ref_FW" => $r["reads_FW_ref"], "ref_RV" => $r["reads_RV_ref"], "alt_FW" => $r["reads_FW_alt"], "alt_RV" => $r["reads_RV_alt"], "VAF" => $r["vaf"], "Filter" => $r["filtro"], 
+                "Oth_info" => $r["info_run"]);
+            if ($r["tipo_ex"] == "NA")
+                $resultado[$it]["Variant"] = $r["tipo_var"];
+            $it++;
+        }
+        $dbcon->close();
+    }
+    return $resultado;
+}
+
+function getFullVariante($usuario, $chr, $inicio, $obs) {
+    $resultado = "";
+    $bd = getBD($usuario);
+    $dbcon = new mysqli(SERVIDOR, USUARIO, CONTRASENA, $bd);
+    if ($dbcon->connect_errno > 0) {
+        $resultado = "No se puede conectar a la base de datos";
+    }
+    else {
+        $consulta = $dbcon->query("SELECT * FROM variant v WHERE cromosoma='$chr' AND inicio=$inicio AND observado='$obs'");
+        $aux = $consulta->fetch_assoc();
+        $resultado = array("Id" => $aux["id"], "Chromosome" => $aux["cromosoma"], "Start" => $aux["inicio"], "Fin" => $aux["fin"], "Ref" => $aux["referencia"], "Alt" => $aux["observado"],
+            "Gene" => $aux["gen"],"Gene_Ref." => $aux["genoma_ref"], "Var_type" => $aux["tipo_var"], "Var_exonic" => $aux["tipo_ex"], "Transcript" => $aux["transcrito"],
+            "HGVS_cDNA" => $aux["hgvs_cDNA"], "HGVS_prot" => $aux["hgvs_prot"], "Exon" => $aux["exon"], "dbSNP" => $aux["dbsnp"], "ClinVar" => $aux["clinvar"], "COSMIC" => $aux["cosmic"],
+            "Pred_summary" => $aux["sum_pred"], "MAF" => $aux["maf"], "Population_MAF" => $aux["pop_maf"], "Annotations" => $aux["anotaciones"]);
+        $dbcon->close();
+    }
+    return $resultado;
+}
+
 /**
  * Recoger el total de muestras guardadas en la base de datos
  * @param string $usuario Identificador de usuario que accede a la base de datos. Se usa para seleccionar que base de datos abrir 
@@ -89,8 +133,18 @@ function getUnaMuestra($usuario, $id) {
         $resultado = "Cannot connect to database";
     }
     else {
-        $consulta = $dbcon->query("SELECT * FROM variant v JOIN run r ON r.id_variant=v.id WHERE id=$id;");
-        //TODO continuar la consulta per recollir una mostra completa
+        $consulta = $dbcon->query("SELECT * FROM run r JOIN variant v ON r.id_variant=v.id WHERE id_mostra=$id;");
+        $resultado = array();
+        $it = 0;
+        foreach ($consulta as $r) {
+            $resultado[$it] = array("Chrom" => $r["cromosoma"], "Start" => $r["inicio"], "Fin" => $r["fin"], "Ref" => $r["referencia"], "Alt" => $r["observado"], "Gene" => $r["gen"],  "Gene_Ref." => $r["genoma_ref"],
+                "Var_type" => $r["tipo_var"], "Var_exonic" => $r["tipo_ex"], "Transcript" => $r["transcrito"], "HGVS_cDNA" => $r["hgvs_cDNA"], "HGVS_prot" => $r["hgvs_prot"], "Exon" => $r["exon"],
+                "dbSNP" => $r["dbsnp"], "ClinVar" => $r["clinvar"], "COSMIC" => $r["cosmic"], "Pred_summary" => $r["sum_pred"], "MAF" => $r["maf"], "Population_MAF" => $r["pop_maf"],
+                "Annotations" => $r["anotaciones"], "varID" => $r["id_variant"], "sampID" => $r["id_mostra"], "Cov_Gen." => $r["coverage"], "Cov_Ref." => $r["cov_ref"], "Cov_Alt." => $r["cov_alt"],
+                "Ref_FW" => $r["reads_FW_ref"], "Ref_RV" => $r["reads_RV_ref"], "Alt_FW" => $r["reads_FW_alt"], "Alt_RV" => $r["reads_RV_alt"], "VAF" => $r["vaf"], "Filter" => $r["filtro"],
+                "Run_info" => $r["info_run"]);
+            $it ++;
+        }
         $dbcon->close();
     }
     return $resultado;
