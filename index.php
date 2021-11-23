@@ -1,7 +1,7 @@
 <?php include_once 'presentador/presenter.php'; 
 session_start();
 
-define(MAX_INTENTOS, 5);
+define("MAX_INTENTOS", 5);
 
 if (isset($_SESSION["UsuarioBloqueado"])) {
     if (time() > $_SESSION["UsuarioBloqueado"]) {

@@ -6,6 +6,7 @@ function getNavigationBar($usuario) {
     if ($bd == "ALLvar") {
         print <<<END
         <ul>
+            <li><a href="pral.php">Home</a></li>
         	<li><a href="muestras.php">Samples</a></li>
         	<li><a href="">Cryos</a></li>
         	<li><a href="">DNAs</a></li>
