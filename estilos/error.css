@@ -1,0 +1,14 @@
+#error {
+	border: 4px outset red;
+	border-radius: 5px;
+	box-shadow: rgba(255, 0, 0, 0.56) 0px 6px 12px, rgba(255, 0, 0, 0.23) 0px 6px 12px;
+	width: 20%;
+	margin: 20px auto;
+	padding: 20px;
+	
+}
+
+#error a, #error a:visited {
+	text-decoration: none;
+	color: #FF6900;
+}

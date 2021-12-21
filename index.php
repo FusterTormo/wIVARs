@@ -51,7 +51,7 @@ function paginaNormal() {
     <!DOCTYPE html>
     <html lang="es">
     <head>
-       <title>IJCvars</title>
+       <title>LAbDb</title>
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="estilos/base.css">
@@ -79,7 +79,7 @@ function paginaIntentos($intentos) {
     <!DOCTYPE html>
     <html lang="es">
     <head>
-       <title>IJCvars</title>
+       <title>LAbDb</title>
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="estilos/base.css">
@@ -112,7 +112,7 @@ function paginaBloqueo($tiempo) {
     <!DOCTYPE html>
     <html lang="es">
     <head>
-       <title>IJCvars</title>
+       <title>LAbDb</title>
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="estilos/base.css">
