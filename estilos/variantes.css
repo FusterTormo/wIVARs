@@ -93,7 +93,6 @@ section#tabla {
 	display: flex-table;
 	margin-left: 0.5%;
 	margin-bottom: 10px;
-	
 }
 
 .fixe {
@@ -124,8 +123,8 @@ section#tabla {
 }
 
 .celda {
-	width: 7.5%;
-	padding: 8px 6px;
+	width: 7%;
+	padding: 8px 2px;
 	float: left;
 	white-space: nowrap;
 	overflow: hidden;

@@ -14,6 +14,27 @@ section h3 {
 	text-align: center;
 }
 
+section ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	columns: 3;
+}
+
+section ul li::before {
+	content: "- ";
+	color: #6CC24A;
+}
+
+section ul li a, section ul li a:visited {
+	color: #FF6900;
+	text-decoration: none;
+}
+
+section ul li a:hover {
+	text-decoration: underline;
+}
+
 section input {
 	border: 0;
 	border-bottom: 1px solid #00C1D5;

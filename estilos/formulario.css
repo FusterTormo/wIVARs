@@ -1,0 +1,60 @@
+form {
+	width: 80%;
+	margin: auto;
+}
+
+label {
+	width: 29%;
+	display: inline-table;
+	text-align: right;
+}
+
+input, select, textarea {
+	width: 65%;
+	padding: 7px;
+	border-radius: 4px;
+	resize: vertical;
+	display: inline-table;
+	margin: 5px;
+	border: 1px solid #6CC24A;
+	background-color: #FFFFFF;
+}
+
+button {
+	display: block;
+	padding: 12px;
+	color: #FFFFFF;
+	border: 1px solid #00C1D5;
+	background-color: #00C1D5;
+	cursor: pointer;
+	float: right;
+}
+
+button:active {
+	padding: 8px;
+}
+
+div.boton {
+	width: 100%;
+}
+
+div.dreta {
+	width: 29%;
+	display: inline-table;
+	text-align: right;
+}
+
+div.esquerra {
+	width: 65%;
+	display: inline-table;
+	padding: 5px;
+}
+
+div.esquerra a, div.esquerra a:visited {
+	color: #6CC24A;
+	text-decoration: none;
+}
+
+div.esquerra a:hover {
+	text-decoration: underline;
+}
