@@ -63,11 +63,11 @@ function leerRuns($usuario, $id) {
     $tabla = array();
     $it = 0;
     if (is_array($datos)) {
-        $tabla[0] = array("Sample_ID", "VAF", "General", "Ref.", "Alt.", "Ref.FW", "Ref.RV", "Alt.FW", "Alt.RV", "Filter", "Info");
+        $tabla[0] = array("Sample_ID", "VAF", "General", "Ref.", "Alt.", "Ref.FW", "Ref.RV", "Alt.FW", "Alt.RV", "Filter", "Run", "Classification", "Info");
         foreach ($datos as $fila) {
             $it ++;
             $tabla[$it] = array($fila["sampID"], $fila["VAF"], $fila["Gen."], $fila["Ref."], $fila["Alt."], $fila["ref_FW"], $fila["ref_RV"], $fila["alt_FW"], $fila["alt_RV"], $fila["Filter"], 
-                $fila["Oth_info"]);
+                $fila["RunName"], $fila["Class."], $fila["Oth_info"]);
         }
     }
     else {
@@ -78,5 +78,62 @@ function leerRuns($usuario, $id) {
 
 function leerMuestra($usuario, $id) {
     $datos = getUnaMuestra($usuario, $id);
+    if (is_array($datos))
+        return $datos[0];
+    else
+        return array($datos);
+}
+
+function leerTodasMuestras($usuario) {
+    $datos = getAllMuestras($usuario);
+    $tabla = array();
+    $it = 0;
+    if (is_array($datos)) {
+        $tabla[0] = array_keys($datos[0]);
+        $it = 1;
+        foreach ($datos as $d) {
+            $tabla[$it] = array_values($d);
+            $it ++;
+        }
+    }
+    else {
+        $tabla[0] = $datos;
+    }
+    return $tabla;
+}
+
+function leerCryo($usuario, $id) {
+    $datos = getUnCriovial($usuario, $id);
+    if (is_array($datos))
+        return $datos[0];
+    else 
+        return array($datos);
+}
+
+function leerTodosCrioviales($usuario, $muestra = NULL) {
+    if (is_null($muestra))
+        $datos = getAllCrioviales($usuario);
+    else 
+        $datos = getCriosXMuestra($usuario, $muestra);
+    $tabla = array();
+    $it = 0;
+    if (is_array($datos)) {
+        if (count($datos) == 0) {
+            $tabla[0] = array("Information");
+            $tabla[1] = array("No data");
+        }
+        else {
+            $tabla[$it] = array_keys($datos[0]);
+            $it ++;
+            foreach ($datos as $d) {
+                $tabla[$it] = array_values($d);
+                $it ++;
+            }
+        }
+    }
+    else {
+        $tabla[$it] = $datos; 
+    }
+    return $tabla;
 }
 ?>

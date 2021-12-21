@@ -23,20 +23,31 @@ if (isset($_SESSION["u"])) {
 	<nav>
 		<?php getNavigationBar($_SESSION["u"]); ?>
 	</nav>
-	<input type="hidden" id="nomUsuario" readonly="readonly" value="<?php print $_SESSION["u"]?>">
+	<section id="newData">
+		<h3>Create new</h3>
+		<ul>
+			<li><a href="muestras.php?newSamp=true">Patient</a></li>
+			<li><a href="crios.php?newCryo=true">Cryovial</a></li>
+			<li>DNA</li>
+			<li>RNA</li>
+			<li>Saliva</li>
+			<li>Other</li>
+		</ul>
+	</section>
 	<section id="pacients">
 		<h3><span class="count">PENDING</span> patients stored</h3>
-		<form action="varsXrun.php" method="GET">
-			<input list="list_pac" name="varID" placeholder="Search a patient" autocomplete="off">
+		<form action="muestras.php" method="GET">
+			<input list="list_pac" name="sampID" placeholder="Search a patient" autocomplete="off">
 			<button type="submit">Go!</button>
 			<datalist id="list_pac"></datalist>
 		</form>
 	</section>
 	<section id="criotubs">
 		<h3><span class="count">PENDING</span> cryovials stored</h3>
-		<form>
-			<input type="text" placeholder="Search a cryovial">
+		<form action="crios.php" method="GET">
+			<input list="list_cryo" name="cryoID" placeholder="Search a cryovial" autocomplete="off">
 			<button type="submit">Go!</button>
+			<datalist id="list_cryo"></datalist>
 		</form>
 	</section>
 	<section id="DNAs">
@@ -66,6 +77,6 @@ if (isset($_SESSION["u"])) {
 <?php 
 }
 else {
-    print("Sesion no iniciada");
+    error_sesion();
 }
 ?>

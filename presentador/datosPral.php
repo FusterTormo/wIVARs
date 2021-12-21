@@ -15,4 +15,17 @@ if (isset($_POST["dameMuestras"])) {
         print $datos;
     }
 }
+elseif (isset($_POST["dameCrios"])) {
+    $datos = getIDcrioviales($_POST["usuario"]);
+    $lista = [];
+    if (is_array($datos)) {
+        foreach ($datos as $d) {
+            array_push($lista, $d["ID"]);
+        }
+        print json_encode($lista);
+    }
+    else {
+        print $datos;
+    }
+}
 ?>
