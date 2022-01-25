@@ -1,4 +1,6 @@
-<?php include_once 'presentador/presenter.php'; 
+<?php include_once 'presentador/presenter.php';
+include_once 'presentador/datosUsuario.php';
+
 session_start();
 
 define("MAX_INTENTOS", 5);
@@ -18,23 +20,32 @@ else {
     if (isset($_POST["usuario"]) && isset($_POST["contrasena"])) {
         if (validar($_POST["usuario"], $_POST["contrasena"])) {
             session_unset();
-            $redirige = getPral($_POST["usuario"]);
-            //Comprobar que no se han enviado mensajes de error
-            if (preg_match("/php/", $redirige) == 0) {
-                die("ERROR connecting to database. Description: $redirige");
+            $fecha = leerCaducidadPw($_POST["usuario"]);
+            $hoy = date("Y-m-d");
+            $_SESSION["u"] = $_POST["usuario"];
+            //Comprobar si la contrasena esta caducada
+            if ($fecha < $hoy) {
+              header("Location: cambiaPas.php");
+              exit;
             }
             else {
-                $_SESSION["u"] = $_POST["usuario"];
-                header("Location: $redirige");
-                exit();
+              $redirige = getPral($_POST["usuario"]);
+              //Comprobar que no se han enviado mensajes de error
+              if (preg_match("/php/", $redirige) == 0) {
+                  die("ERROR connecting to database. Description: $redirige");
+              }
+              else {
+                  header("Location: $redirige");
+                  exit();
+              }
             }
         }
         else {
             if (isset($_SESSION["intentos"]))
                 $_SESSION["intentos"] ++;
-            else 
+            else
                 $_SESSION["intentos"] = 1;
-            
+
             if ($_SESSION["intentos"] >= MAX_INTENTOS -1) {
                 $_SESSION["UsuarioBloqueado"] =  time() + (30 * 60); //Bloquear 30 minutos
             }
@@ -55,7 +66,7 @@ function paginaNormal() {
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" href="estilos/base.css">
-    	<link rel="stylesheet" href="estilos/index.css"> 
+    	<link rel="stylesheet" href="estilos/index.css">
     	<script src="javascript/jquery-3.6.0.min.js"></script>
     </head>
     <body>
@@ -123,6 +134,6 @@ function paginaBloqueo($tiempo) {
     	<header><h1>Blocked terminal</h1></header>
 END;
     print "<section id='bloqueo'><h2>User blocked</h2><p class='error'>" . date("i:s", $tiempo) . " minutes remaining.</p></section>";
-    
+
 }
 ?>

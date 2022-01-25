@@ -5,7 +5,7 @@
 
 define("SERVIDOR", "localhost");
 define("USUARIO", "ffuster");
-define("CONTRASENA", "Aetaeb6e");
+define("CONTRASENA", "Aetaeb6e$");
 
-//Titulos de las tablas? 
+//Titulos de las tablas?
 ?>

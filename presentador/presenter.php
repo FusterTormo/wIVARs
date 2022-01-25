@@ -66,7 +66,7 @@ function leerRuns($usuario, $id) {
         $tabla[0] = array("Sample_ID", "VAF", "General", "Ref.", "Alt.", "Ref.FW", "Ref.RV", "Alt.FW", "Alt.RV", "Filter", "Run", "Classification", "Info");
         foreach ($datos as $fila) {
             $it ++;
-            $tabla[$it] = array($fila["sampID"], $fila["VAF"], $fila["Gen."], $fila["Ref."], $fila["Alt."], $fila["ref_FW"], $fila["ref_RV"], $fila["alt_FW"], $fila["alt_RV"], $fila["Filter"], 
+            $tabla[$it] = array($fila["sampID"], $fila["VAF"], $fila["Gen."], $fila["Ref."], $fila["Alt."], $fila["ref_FW"], $fila["ref_RV"], $fila["alt_FW"], $fila["alt_RV"], $fila["Filter"],
                 $fila["RunName"], $fila["Class."], $fila["Oth_info"]);
         }
     }
@@ -106,14 +106,14 @@ function leerCryo($usuario, $id) {
     $datos = getUnCriovial($usuario, $id);
     if (is_array($datos))
         return $datos[0];
-    else 
+    else
         return array($datos);
 }
 
 function leerTodosCrioviales($usuario, $muestra = NULL) {
     if (is_null($muestra))
         $datos = getAllCrioviales($usuario);
-    else 
+    else
         $datos = getCriosXMuestra($usuario, $muestra);
     $tabla = array();
     $it = 0;
@@ -132,7 +132,7 @@ function leerTodosCrioviales($usuario, $muestra = NULL) {
         }
     }
     else {
-        $tabla[$it] = $datos; 
+        $tabla[$it] = $datos;
     }
     return $tabla;
 }

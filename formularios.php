@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Libreria de formularios de cada una de las tablas de la base de datos
  */
@@ -18,6 +18,7 @@ function ALL_muestra($cont = NULL) {
         	</select>
         	<label for="edat">Age at diagnostic</label><input type="number" id="edat" name="edat" autocomplete="off">
         	<label for="hospital">Hospital</label><input type="text" id="hospital" name="hospital" autocomplete="off">
+          <label for="metge">Contact name</label><input type="text" id="metge" name="metge" autocomplete="off">
         	<label for="mail">Contact email</label><input type="email" id="mail" name="mail" autocomplete="off">
         	<label for="protocol">Protocol</label><input type="text" id="protocol" name="protocol" autocomplete="off">
         	<label for="diagnostic">Diagnostic</label><input type="text" id="diagnostic" name="diagnostic" autocomplete="off">
@@ -29,7 +30,7 @@ function ALL_muestra($cont = NULL) {
         		<option value="No">No</option>
         	</select>
         	<div class="boton"><button type="submit">Save</button></div>
-        </form>  
+        </form>
 END;
     }
     else {
@@ -83,6 +84,7 @@ END;
         }
         print '<p>+ <a href="crios.php?sampID=' . $cont["ID_IJC"] . '">View all</a></p>';
         print '</div>';
+        print '<div class="boton"><button type="button" onclick="atras()">Back</button></div>';
         print '<div class="boton"><button type="submit">Edit</button></div>';
         print "</form>";
     }
@@ -100,7 +102,7 @@ function ALL_cryo($cr = NULL) {
 		<label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="Empty" autocomplete="off">
 		<label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="Empty" autocomplete="off">
 		<label for="dataDesco">Defrost date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="Empty" autocomplete="off">
-		<label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">		
+		<label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">
 		<label for="viabilitat">Availability</label><input type="text" name="viabilitat" id="viabilitat" placeholder="Empty" autocomplete="off">
 		<label for="sorting">Sorting</label><input type="text" name="sorting" id="sorting" placeholder="Empty" autocomplete="off">
 		<label for="sortingPop">Sorting population</label><input type="text" name="sortingPop" id="sortingPop" placeholder="Empty" autocomplete="off">

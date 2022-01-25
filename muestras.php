@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'presentador/presenter.php';
 include_once 'lib.php';
 include_once 'formularios.php';
@@ -37,6 +37,7 @@ END;
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/formulario.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
+  <script src="javascript/comun.js"></script>
 </head>
 <body>
 END;
@@ -91,7 +92,7 @@ function listaMuestras() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/variantes.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
-	
+
 </head>
 <body>
 	<header><h1>Patients stored in database</h1></header>
@@ -101,7 +102,7 @@ END;
     print <<<END
 	</nav>
 	<section id="buscar">
-	
+
 	</section>
 	<section id="filtrar">
 		<button type="button">Filter</button>
