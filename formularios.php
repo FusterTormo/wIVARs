@@ -13,13 +13,13 @@ function ALL_muestra($cont = NULL) {
         	<label for="sexe">Gender</label>
         	<select id="sexe" name="sexe">
         		<option value="--"></option>
-        		<option value="Man">Man</option>
-        		<option value="Woman">Woman</option>
+        		<option value="Male">Male</option>
+        		<option value="Female">Female</option>
         	</select>
         	<label for="edat">Age at diagnostic</label><input type="number" id="edat" name="edat" autocomplete="off">
         	<label for="hospital">Hospital</label><input type="text" id="hospital" name="hospital" autocomplete="off">
-          <label for="metge">Contact name</label><input type="text" id="metge" name="metge" autocomplete="off">
-        	<label for="mail">Contact email</label><input type="email" id="mail" name="mail" autocomplete="off">
+          <label for="metge">Clinician's contact name</label><input type="text" id="metge" name="metge" autocomplete="off">
+        	<label for="mail">Clinician's contact email</label><input type="email" id="mail" name="mail" autocomplete="off">
         	<label for="protocol">Protocol</label><input type="text" id="protocol" name="protocol" autocomplete="off">
         	<label for="diagnostic">Diagnostic</label><input type="text" id="diagnostic" name="diagnostic" autocomplete="off">
         	<label for="datadiagnostic">Diagnostic date</label><input type="date" id="datadiagnostic" name="datadiagnostic" autocomplete="off">
@@ -29,6 +29,8 @@ function ALL_muestra($cont = NULL) {
         		<option value="Yes">Yes</option>
         		<option value="No">No</option>
         	</select>
+          <label for="comentari">Additional comments</label>
+          <textarea></textarea>
         	<div class="boton"><button type="submit">Save</button></div>
         </form>
 END;
@@ -94,22 +96,40 @@ function ALL_cryo($cr = NULL) {
     if (is_null($cr)) {
         print <<<END
 	<form>
-		<label for="codiextern">External code</label><input type="text" name="codiextern" id="codiextern" placeholder="Empty" autocomplete="off">
-		<label for="data">Date</label><input type="date" name="data" id="data" placeholder="Empty" autocomplete="off">
-		<label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="Empty" autocomplete="off">
-		<label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="Empty" autocomplete="off">
-		<label for="teixit">Tissue</label><input type="text" name="teixit" id="teixit" placeholder="Empty" autocomplete="off">
-		<label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="Empty" autocomplete="off">
-		<label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="Empty" autocomplete="off">
-		<label for="dataDesco">Defrost date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="Empty" autocomplete="off">
-		<label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">
-		<label for="viabilitat">Availability</label><input type="text" name="viabilitat" id="viabilitat" placeholder="Empty" autocomplete="off">
-		<label for="sorting">Sorting</label><input type="text" name="sorting" id="sorting" placeholder="Empty" autocomplete="off">
-		<label for="sortingPop">Sorting population</label><input type="text" name="sortingPop" id="sortingPop" placeholder="Empty" autocomplete="off">
-		<label for="comentari" style="vertical-align: top">Additional comments</label><textarea name="comentari" id="comentari"></textarea>
-		<label for="idPacient">Patient ID</label><select name="idPacient" id="idPacient"></select>
-		<label for="refrozen">Refrozen</label><input type="text">
-		<label for="mice">Mice</label><input type="text">
+    <fieldset>
+      <legend>Cryovial information</legend>
+        <label for="idPacient">Sample IJC ID</label><select name="idPacient" id="idPacient"></select>
+    		<label for="codiextern">Cryovial ID</label><input type="text" name="codiextern" id="codiextern" placeholder="Empty" autocomplete="off">
+    		<label for="data">Arrival date</label><input type="date" name="data" id="data" placeholder="Empty" autocomplete="off">
+    		<label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="Empty" autocomplete="off">
+    		<label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="Empty" autocomplete="off">
+    		<label for="teixit">Tissue origin</label><input type="text" name="teixit" id="teixit" placeholder="Empty" autocomplete="off">
+    		<label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="Empty" autocomplete="off">
+        <label for="disponible">Available</label><select name="disponible" id="disponible">
+            <option value="" selected></option>
+            <option value="Yes">Yes</option>
+            <option values="No">No</option>
+          </select>
+        <label for="comentaris">Additional comments</label><textarea name="comentaris" id="comentaris"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Cryovial storage</legend>
+        <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="Empty" autocomplete="off">
+        <label for="tanc">Tank storage</label><input type="text" name="tanc" id="tanc" placeholder="Empty" autocomplete="off">
+        <label for="rac">Rack storage</label><input type="text" name="rac" id="rac" placeholder="Empty" autocomplete="off">
+        <label for="caixa">Box</label><input type="text" name="caixa" id="caixa" placeholder="Empty" autocomplete="off">
+        <label for="posicio">Position</label><input type="text" name="posicio" id="posicio" placeholder="Empty" autocomplete="off">
+      </fieldset>
+      <fieldset>
+        <legend>Thaw</legend>
+		    <label for="dataDesco">Defrost date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="Empty" autocomplete="off">
+		    <label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">
+		    <label for="viabilitat">Availability</label><input type="text" name="viabilitat" id="viabilitat" placeholder="Empty" autocomplete="off">
+        <label for="sorting">Sorting</label><input type="text" name="sorting" id="sorting" placeholder="Empty" autocomplete="off">
+        <label for="sortingPop">Sorting population</label><input type="text" name="sortingPop" id="sortingPop" placeholder="Empty" autocomplete="off">
+        <label for="refrozen">Refrozen</label><input type="text">
+        <label for="mice">Mice</label><input type="text">
+      </fieldset>
         <div class="boton"><button type="submit">Save</button></div>
 	</form>
 END;

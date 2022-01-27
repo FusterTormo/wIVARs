@@ -10,7 +10,7 @@ function writeLog($log, $contenido) {
     date_default_timezone_set("Europe/Madrid");
     $linea = date("Y/m/d H:i:s") . " $contenido" . "\n";
     fwrite($fi, $linea);
-    fclose($fix);
+    fclose($fi);
   }
   else {
     error_log("Unable to find $log");
