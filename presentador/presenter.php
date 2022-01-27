@@ -1,5 +1,14 @@
 <?php
 include_once 'modelo/consultas.php';
+include_once 'modelo/comun.php';
+
+/**
+ * Guardar informacion en el log
+**/
+function editarLog($log, $contenido) {
+  writeLog($log, $contenido);
+}
+
 
 /**
  * Recoger informacion basica de todas las variantes guardadas en la base de datos

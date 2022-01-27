@@ -1,5 +1,6 @@
 <?php include_once 'presentador/presenter.php';
 include_once 'presentador/datosUsuario.php';
+include_once 'presentador/ctes.php';
 
 session_start();
 
@@ -35,8 +36,10 @@ else {
                   die("ERROR connecting to database. Description: $redirige");
               }
               else {
-                  header("Location: $redirige");
-                  exit();
+                $frase = "INFO: " . $_SESSION["u"] . " inicia sesion";
+                editarLog(ACCESO, $frase);
+                header("Location: $redirige");
+                exit();
               }
             }
         }
