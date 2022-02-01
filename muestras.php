@@ -69,6 +69,7 @@ function crearMuestra() {
 </head>
 <body>
 END;
+    print "<input type=\"hidden\" id=\"nomUsuario\" readonly=\"readonly\" value=\"" . $_SESSION["u"] . "\">";
     print "<header><h1>Create new patient</h1></header><nav>";
     getNavigationBar($_SESSION["u"]);
     print "</nav>";
