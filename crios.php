@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once 'presentador/presenter.php';
 include_once 'lib.php';
 include_once 'formularios.php';
@@ -92,7 +92,7 @@ function criosXmuestra() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/variantes.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
-	
+
 </head>
 <body>
 END;
@@ -103,7 +103,7 @@ END;
     print <<<END
 	</nav>
 	<section id="buscar">
-	
+
 	</section>
 	<section id="filtrar">
 		<button type="button">Filter</button>
@@ -153,7 +153,7 @@ function tablaCrios() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/variantes.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
-	
+
 </head>
 <body>
 	<header><h1>Cryovials stored in database</h1></header>
@@ -163,19 +163,19 @@ END;
     print <<<END
 	</nav>
 	<section id="buscar">
-	
+
 	</section>
 	<section id="filtrar">
-		<button type="button">Filter</button>
+		<a href="crios.php?newCryo=true" title="Create new cryovial"><button type="button">New</button></a>
 		<div id="filtros">
-			By gene
+			<!--By gene
 			<div id="genes"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By variant
 			<div id="variantes"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By MAF
 			<div id="mafs"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By cases reported
-			<div id="casos"><ul><li>View all</li><li>Hide all</li></ul></div>
+			<div id="casos"><ul><li>View all</li><li>Hide all</li></ul></div>-->
 		</div>
 	</section>
 	<!-- Por lo leido, las barras de progreso no estan muy estandarizadas, aunque html5 tenga la etiqueta progress. Mejor hacer una con css y javascript
