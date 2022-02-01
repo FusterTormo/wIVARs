@@ -96,7 +96,7 @@ function ALL_cryo($cr = NULL) {
     if (is_null($cr)) {
         print <<<END
 	<form>
-    <fieldset>
+    <fieldset id="cryo_general">
       <legend>Cryovial information</legend>
         <label for="idPacient">Sample IJC ID</label><select name="idPacient" id="idPacient"></select>
     		<label for="codiextern">Cryovial ID</label><input type="text" name="codiextern" id="codiextern" placeholder="Empty" autocomplete="off">
@@ -112,7 +112,7 @@ function ALL_cryo($cr = NULL) {
           </select>
         <label for="comentaris">Additional comments</label><textarea name="comentaris" id="comentaris"></textarea>
       </fieldset>
-      <fieldset>
+      <fieldset id="cryo_storage">
         <legend>Cryovial storage</legend>
         <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="Empty" autocomplete="off">
         <label for="tanc">Tank storage</label><input type="text" name="tanc" id="tanc" placeholder="Empty" autocomplete="off">
@@ -120,7 +120,7 @@ function ALL_cryo($cr = NULL) {
         <label for="caixa">Box</label><input type="text" name="caixa" id="caixa" placeholder="Empty" autocomplete="off">
         <label for="posicio">Position</label><input type="text" name="posicio" id="posicio" placeholder="Empty" autocomplete="off">
       </fieldset>
-      <fieldset>
+      <fieldset id="cryo_thaw">
         <legend>Thaw</legend>
 		    <label for="dataDesco">Defrost date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="Empty" autocomplete="off">
 		    <label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">

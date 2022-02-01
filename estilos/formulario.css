@@ -3,6 +3,16 @@ form {
 	margin: auto;
 }
 
+fieldset {
+	border: 0;
+}
+
+legend {
+	font-size: 1.5vw;
+	margin-top: 5px;
+	border-bottom: 1px dashed black;
+}
+
 label {
 	width: 29%;
 	display: inline-table;
@@ -18,6 +28,7 @@ input, select, textarea {
 	margin: 5px;
 	border: 1px solid #6CC24A;
 	background-color: #FFFFFF;
+	vertical-align: middle;
 }
 
 button {
