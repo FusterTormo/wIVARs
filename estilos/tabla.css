@@ -95,6 +95,15 @@ section#tabla {
 	margin-bottom: 10px;
 }
 
+a, a:visited {
+	text-decoration: none;
+	color: #6CC24A;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 .fixe {
 	position: fixed;
 	top: 0;
@@ -139,9 +148,9 @@ section#tabla {
 }
 
 .modal {
-	display: none; 
+	display: none;
 	position: fixed;
-	left: 0; 
+	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100%;
@@ -178,7 +187,7 @@ section#tabla {
 
 .modal h2 {
 	color: #6CC24A;
-	text-decoration: underline; 
+	text-decoration: underline;
 }
 
 .modal a, .modal a:visited {

@@ -6,5 +6,6 @@ $(document).ready(function(){
     datatype : "jsonp"
   }).done(function(data){
     $("#idijc").val(data);
+    $("#idpethema").focus();
   });
 });
