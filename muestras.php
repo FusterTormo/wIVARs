@@ -65,6 +65,7 @@ function crearMuestra() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/formulario.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
+  <script src="javascript/muestras.js"></script>
 </head>
 <body>
 END;
@@ -105,16 +106,16 @@ END;
 
 	</section>
 	<section id="filtrar">
-		<button type="button">Filter</button>
+		<a href="muestras.php?newSamp=true" title="Create new sample"><button type="button">New</button></a>
 		<div id="filtros">
-			By gene
+			<!--By gene
 			<div id="genes"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By variant
 			<div id="variantes"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By MAF
 			<div id="mafs"><ul><li>View all</li><li>Hide all</li></ul></div>
 			By cases reported
-			<div id="casos"><ul><li>View all</li><li>Hide all</li></ul></div>
+			<div id="casos"><ul><li>View all</li><li>Hide all</li></ul></div>-->
 		</div>
 	</section>
 	<!-- Por lo leido, las barras de progreso no estan muy estandarizadas, aunque html5 tenga la etiqueta progress. Mejor hacer una con css y javascript
