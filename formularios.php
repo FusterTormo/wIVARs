@@ -105,6 +105,7 @@ function ALL_cryo($cr = NULL) {
     		<label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="Empty" autocomplete="off">
     		<label for="teixit">Tissue origin</label><input type="text" name="teixit" id="teixit" placeholder="Empty" autocomplete="off">
     		<label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="Empty" autocomplete="off">
+        <label for="celsDisponibles">Number of frozen cells</label><input type="number" name="celsDisponibles" id="celsDisponibles" placeholder="Emtpy" autocomplete="off">
         <label for="disponible">Available</label><select name="disponible" id="disponible">
             <option value="" selected></option>
             <option value="Yes">Yes</option>
@@ -114,7 +115,11 @@ function ALL_cryo($cr = NULL) {
       </fieldset>
       <fieldset id="cryo_storage">
         <legend>Cryovial storage</legend>
-        <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="Empty" autocomplete="off">
+        <label for="guardatEn">Stored in</label><select name="guardatEn" id="guardatEn">
+          <option value="" selected></option>
+          <option value="IGTP">IGTP</option>
+          <option value="IJC">IJC</option>
+        </select>
         <label for="tanc">Tank storage</label><input type="text" name="tanc" id="tanc" placeholder="Empty" autocomplete="off">
         <label for="rac">Rack storage</label><input type="text" name="rac" id="rac" placeholder="Empty" autocomplete="off">
         <label for="caixa">Box</label><input type="text" name="caixa" id="caixa" placeholder="Empty" autocomplete="off">
@@ -124,17 +129,17 @@ function ALL_cryo($cr = NULL) {
         <legend>Thaw</legend>
 		    <label for="dataDesco">Defrost date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="Empty" autocomplete="off">
 		    <label for="motiuDesco">Defrost reason</label><input type="text" name="motiuDesco" id="motiuDesco" placeholder="Empty" autocomplete="off">
-		    <label for="viabilitat">Availability</label><input type="text" name="viabilitat" id="viabilitat" placeholder="Empty" autocomplete="off">
-        <label for="sorting">Sorting</label><input type="text" name="sorting" id="sorting" placeholder="Empty" autocomplete="off">
-        <label for="sortingPop">Sorting population</label><input type="text" name="sortingPop" id="sortingPop" placeholder="Empty" autocomplete="off">
-        <label for="refrozen">Refrozen</label><input type="text">
-        <label for="mice">Mice</label><input type="text">
+        <label for="celsDesco">Number of recovered cells</label><input type="number" id="celsDesco" name="celsDesco" placeholder="Empty" autocomplete="off">
+        <label for="sorting">Sorting markers</label><input type="text" name="sorting" id="sorting" placeholder="Empty" autocomplete="off">
+        <!--<label for="sortingPop">Sorting population</label><input type="text" name="sortingPop" id="sortingPop" placeholder="Empty" autocomplete="off">-->
+        <label for="commentsThaw">Additional comments</label><textarea name="commentsThaw" id="commentsThaw"></textarea>
       </fieldset>
         <div class="boton"><button type="submit">Save</button></div>
 	</form>
 END;
     }
     else {
+      //TODO Canviar l'estructura d'aquest formulari
         print "<form>";
         print '<label for="codiextern">External code</label><input type="text" name="codiextern" id="codiextern" placeholder="Empty" autocomplete="off" value="' . $cr["ID"] . '">';
         print '<label for="data">Date</label><input type="date" name="data" id="data" placeholder="Empty" autocomplete="off" value="' . $cr["Date"] . '">';
