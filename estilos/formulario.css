@@ -42,6 +42,7 @@ button {
 }
 
 button:active {
+	margin: 4px;
 	padding: 8px;
 }
 

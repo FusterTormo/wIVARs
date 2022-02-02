@@ -94,7 +94,6 @@ function listaMuestras() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/tabla.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
-
 </head>
 <body>
 	<header><h1>Patients stored in database</h1></header>

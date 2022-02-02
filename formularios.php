@@ -5,7 +5,7 @@
 function ALL_muestra($cont = NULL) {
     if (is_null($cont)) {
         print <<<END
-        <form>
+        <form name="newMuestra">
         	<label for="idijc">ID IJC</label><input type="text" id="idijc" name="idijc" autocomplete="off">
         	<label for="idpethema">ID PETHEMA</label><input type="text" id="idpethema" name="idpethema" autocomplete="off">
         	<label for="idsalamanca">ID Salamanca</label><input type="text" id="idsalamanca" name="idsalamanca" autocomplete="off">
