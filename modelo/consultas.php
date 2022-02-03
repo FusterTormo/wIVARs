@@ -2,7 +2,7 @@
 /**
  * Incluye funciones para todas las consultas que se hagan a las base de datos
  */
- 
+
 include_once 'constantes.php';
 
 /******************************************************
@@ -73,7 +73,7 @@ function getUnaMuestra($usuario, $id) {
         $tmp = $consulta->fetch_assoc();
         $resultado = array();
         $resultado[0] = array("ID_IJC" => $tmp["id_ijc"], "ID_PETHEMA" => $tmp["id_pethema"], "ID_Salamanca" => $tmp["id_salamanca"], "Initials" => $tmp["inicials"], "Gender" => $tmp["sexe"],
-            "Age" => $tmp["edat"], "Hospital" => $tmp["hospital"], "Email" => $tmp["mail_contacte"], "Protocol" => $tmp["protocol"], "Diagnostic" => $tmp["diagnostic"], 
+            "Age" => $tmp["edat"], "Hospital" => $tmp["hospital"], "Email" => $tmp["mail_contacte"], "Protocol" => $tmp["protocol"], "Diagnostic" => $tmp["diagnostic"],
             "DX_Date" => $tmp["data_diagnostic"], "CI" => $tmp["ci"]);
         //Recoger los identificadores de las claves ajenas. Crioviales
         $consulta = $dbcon->query("SELECT codi_extern FROM criovial WHERE id_pacient='$id'");
@@ -84,7 +84,7 @@ function getUnaMuestra($usuario, $id) {
         $resultado[0]["Cryovials"] = $crios;
         //TODO Preguntar si una mostra pot tindre dna extret sense haver creat un criovial
         //$consulta = $dbcon->query("SELECT codi_extern FROM dna WHERE ")
-        
+
         $dbcon->close();
     }
     return $resultado;
@@ -144,8 +144,8 @@ function getUnCriovial($usuario, $id) {
     else {
         $consulta = $dbcon->query("SELECT * FROM criovial WHERE codi_extern='$id'");
         $tmp = $consulta->fetch_assoc();
-        $resultado = array(0 => array("ID" => $tmp["codi_extern"], "Date" => $tmp["data"], "Origin" => $tmp["origen"], "Disease_step" => $tmp["punt_malaltia"], "Tissue" => $tmp["teixit"], 
-            "Blast_perc." => $tmp["percent_blasts"], "Stored_in" => $tmp["guardat_en"], "Defrost_date" => $tmp["data_descongelacio"], "Defrost_reas." => $tmp["motiu_descongelacion"], 
+        $resultado = array(0 => array("ID" => $tmp["codi_extern"], "Date" => $tmp["data"], "Origin" => $tmp["origen"], "Disease_step" => $tmp["punt_malaltia"], "Tissue" => $tmp["teixit"],
+            "Blast_perc." => $tmp["percent_blasts"], "Stored_in" => $tmp["guardat_en"], "Defrost_date" => $tmp["data_descongelacio"], "Defrost_reas." => $tmp["motiu_descongelacion"],
             "Availability" => $tmp["viabilitat"], "Sorting" => $tmp["sorting"], "Sort.Pop." => $tmp["sorting_population"], "Comment" => $tmp["comentari"], "Pat.ID" => $tmp["id_pacient"],
             "Refrozen" => $tmp["refrozen"], "Mice" => $tmp["mice"]));
         $dbcon->close();
@@ -166,7 +166,7 @@ function getAllCrioviales($usuario) {
         $it = 0;
         foreach ($consulta as $r) {
             $resultado[$it] = array("ID" => $r["codi_extern"], "Date" => $r["data"], "Origin" => $r["origen"], "Disease_step" => $r["punt_malaltia"], "Tissue" => $r["teixit"],
-                "Blast_perc." => $r["percent_blasts"], "Stored_in" => $r["guardat_en"], "Defrost_date" => $r["data_descongelacio"], "Defrost_reas." => $r["motiu_descongelacion"], 
+                "Blast_perc." => $r["percent_blasts"], "Stored_in" => $r["guardat_en"], "Defrost_date" => $r["data_descongelacio"], "Defrost_reas." => $r["motiu_descongelacio"], 
                 "Availability" => $r["viabilitat"], "Sorting" => $r["sorting"], "Sort.Pop." => $r["sorting_population"], "Comment" => $r["comentari"], "Pat.ID" => $r["id_pacient"]/*,
                 "Refrozen" => $r["refrozen"], "Mice" => $r["mice"]*/);
             $it ++;
@@ -202,7 +202,7 @@ function getCriosXMuestra($usuario, $muestra) {
  *************************************************/
 
 /**
- * 
+ *
  * @param string $usuario
  * @param string $id
  * @return string|array[][]
@@ -259,7 +259,7 @@ function getVariantes($usuario, $inicio = 0, $filas = 1000)
             );
             if ($r["tipo_ex"] == "NA")
                 $resultado[$it]["Variant"] = $r["tipo_var"];
-            
+
             $cont = $dbcon->query("SELECT count(*) veces FROM run WHERE id_variant=" . $r["id"]);
             $aux = $cont->fetch_assoc();
             $resultado[$it]["Reported"] = $aux["veces"] . " time(s)";
@@ -299,8 +299,8 @@ function getUnaVariante($usuario, $id) {
         $it = 0;
         foreach ($consulta as $r) {
             $resultado[$it] = array("Chrom" => $r["cromosoma"], "Start" => $r["inicio"], "Fin" => $r["fin"], "Ref" => $r["referencia"], "Alt" => $r["observado"],  "Gene" => $r["gen"],
-                "HGVS" => $r["hgvs_prot"], "Variant" => $r["tipo_ex"], "sampID" => $r["id_mostra"], "Gen." => $r["coverage"], "Ref." => $r["cov_ref"], "Alt." => $r["cov_alt"], 
-                "ref_FW" => $r["reads_FW_ref"], "ref_RV" => $r["reads_RV_ref"], "alt_FW" => $r["reads_FW_alt"], "alt_RV" => $r["reads_RV_alt"], "VAF" => $r["vaf"], "Filter" => $r["filtro"], 
+                "HGVS" => $r["hgvs_prot"], "Variant" => $r["tipo_ex"], "sampID" => $r["id_mostra"], "Gen." => $r["coverage"], "Ref." => $r["cov_ref"], "Alt." => $r["cov_alt"],
+                "ref_FW" => $r["reads_FW_ref"], "ref_RV" => $r["reads_RV_ref"], "alt_FW" => $r["reads_FW_alt"], "alt_RV" => $r["reads_RV_alt"], "VAF" => $r["vaf"], "Filter" => $r["filtro"],
                 "Class." => $r["clasificacion"], "RunName" => $r["nom"], "Oth_info" => $r["info_run"]);
             if ($r["tipo_ex"] == "NA")
                 $resultado[$it]["Variant"] = $r["tipo_var"];
