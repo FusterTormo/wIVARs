@@ -167,8 +167,7 @@ function getAllCrioviales($usuario) {
         foreach ($consulta as $r) {
             $resultado[$it] = array("ID" => $r["codi_extern"], "Date" => $r["data"], "Origin" => $r["origen"], "Disease_step" => $r["punt_malaltia"], "Tissue" => $r["teixit"],
                 "Blast_perc." => $r["percent_blasts"], "Stored_in" => $r["guardat_en"], "Defrost_date" => $r["data_descongelacio"], "Defrost_reas." => $r["motiu_descongelacio"],
-                "Availability" => $r["viabilitat"], "Sorting" => $r["sorting"], "Sort.Pop." => $r["sorting_population"], "Comment" => $r["comentari"], "Pat.ID" => $r["id_pacient"]/*,
-                "Refrozen" => $r["refrozen"], "Mice" => $r["mice"]*/);
+                "Availability" => $r["viabilitat"], "Sorting" => $r["sorting"], "Sort.Pop." => $r["sorting_population"], "Comment" => $r["comentari"], "Pat.ID" => $r["id_pacient"]);
             $it ++;
         }
     }

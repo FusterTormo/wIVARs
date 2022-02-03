@@ -132,7 +132,6 @@ END;
         foreach ($fila as $celda) {
             print "<div class='celda'>$celda</div>";
         }
-        /*print "<div class='celda'><a href='crios.php?sampID=" . $fila[0] . "'>View Cryovials</a></div></div>";*/
     }
     print <<<END
     </section>
@@ -193,13 +192,12 @@ END;
     foreach ($header as $h) {
         print "<div class='negreta celda'>$h</div>";
     }
-    print "<div class='negreta celda'>Cryos</div></div>";
+    print "</div>";
     foreach ($datos as $fila) {
         print "<div class='fila'>";
         foreach ($fila as $celda) {
             print "<div class='celda'>$celda</div>";
         }
-        /*print "<div class='celda'><a href='crios.php?sampID=" . $fila[0] . "'>View Cryovials</a></div></div>";*/
     }
     print <<<END
 	</section>
