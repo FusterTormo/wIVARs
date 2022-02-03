@@ -76,5 +76,28 @@ END;
 }
 
 function listaDNAs() {
+  print <<<END
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>DNAs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/base.css">
+    <link rel="stylesheet" href="estilos/formulario.css">
+    <script src="javascript/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+END;
+  print "<input type=\"hidden\" id=\"nomUsuario\" readonly=\"readonly\" value=\"" . $_SESSION["u"] . "\">";
+  print "<header><h1>DNAs stored in database</h1></header><nav>";
+  getNavigationBar($_SESSION["u"]);
+  print "</nav>";
+  print "<section>";
   print "UNDER CONSTRUCTION";
+  print <<<END
+      </section>
+    </body>
+    </html>
+END;
 }
