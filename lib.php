@@ -9,7 +9,7 @@ function getNavigationBar($usuario) {
             <li><a href="pral.php">Home</a></li>
         	<li><a href="muestras.php">Samples</a></li>
         	<li><a href="crios.php">Cryos</a></li>
-        	<li><a href="">DNAs</a></li>
+        	<li><a href="dnas.php">DNAs</a></li>
         	<li><a href="">RNAs</a></li>
         	<li><a href="">Salivas</a></li>
         	<li><a href="">Others</a></li>
@@ -18,7 +18,7 @@ function getNavigationBar($usuario) {
         	<li title="View all RNA done">RNA-seq</li>	-->
         	<li title="View variants stored"><a href="variantes.php">Variants</a></li>
             <li style="float: right"><a href="salir.php">Log out</a></li>
-        </ul> 
+        </ul>
 END;
     }
     else if ($bd == "MDSvar") {
