@@ -145,7 +145,7 @@ function getUnCriovial($usuario, $id) {
         $consulta = $dbcon->query("SELECT * FROM criovial WHERE codi_extern='$id'");
         $tmp = $consulta->fetch_assoc();
         $resultado = array(0 => array("ID" => $tmp["codi_extern"], "Date" => $tmp["data"], "Origin" => $tmp["origen"], "Disease_step" => $tmp["punt_malaltia"], "Tissue" => $tmp["teixit"],
-            "Blast_perc." => $tmp["percent_blasts"], "Stored_in" => $tmp["guardat_en"], "Defrost_date" => $tmp["data_descongelacio"], "Defrost_reas." => $tmp["motiu_descongelacion"],
+            "Blast_perc." => $tmp["percent_blasts"], "Stored_in" => $tmp["guardat_en"], "Defrost_date" => $tmp["data_descongelacio"], "Defrost_reas." => $tmp["motiu_descongelacio"],
             "Availability" => $tmp["viabilitat"], "Sorting" => $tmp["sorting"], "Sort.Pop." => $tmp["sorting_population"], "Comment" => $tmp["comentari"], "Pat.ID" => $tmp["id_pacient"],
             "Refrozen" => $tmp["refrozen"], "Mice" => $tmp["mice"]));
         $dbcon->close();
@@ -166,7 +166,7 @@ function getAllCrioviales($usuario) {
         $it = 0;
         foreach ($consulta as $r) {
             $resultado[$it] = array("ID" => $r["codi_extern"], "Date" => $r["data"], "Origin" => $r["origen"], "Disease_step" => $r["punt_malaltia"], "Tissue" => $r["teixit"],
-                "Blast_perc." => $r["percent_blasts"], "Stored_in" => $r["guardat_en"], "Defrost_date" => $r["data_descongelacio"], "Defrost_reas." => $r["motiu_descongelacio"], 
+                "Blast_perc." => $r["percent_blasts"], "Stored_in" => $r["guardat_en"], "Defrost_date" => $r["data_descongelacio"], "Defrost_reas." => $r["motiu_descongelacio"],
                 "Availability" => $r["viabilitat"], "Sorting" => $r["sorting"], "Sort.Pop." => $r["sorting_population"], "Comment" => $r["comentari"], "Pat.ID" => $r["id_pacient"]/*,
                 "Refrozen" => $r["refrozen"], "Mice" => $r["mice"]*/);
             $it ++;
