@@ -30,8 +30,8 @@ if (isset($_SESSION["u"])) {
 			<li><a href="crios.php?newCryo=true">Cryovial</a></li>
 			<li><a href="dnas.php?newDna=true">DNA</a></li>
 			<li><a href="rnas.php?newRna=true">RNA</a></li>
-			<li>Saliva</li>
-			<li>Other</li>
+			<li><a href="salivas.php?newSaliva=true">Saliva</a></li>
+			<li><a href="others.php?newOther=true">Other</a></li>
 		</ul>
 	</section>
 	<section id="pacients">

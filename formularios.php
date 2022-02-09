@@ -224,4 +224,44 @@ END;
         print "Pending to DO";
     }
 }
+
+function ALL_saliva($saliva = NULL) {
+    // Formulario vacio para nueva saliva
+    if (is_null($saliva)) {
+        print <<<END
+            <form>
+                <label for="idijc">ID IJC</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
+                <label for="data">Date</label><input type="date" name="data" id="data" placeholder="Arrival date" autocomplete="off">
+                <label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="" autocomplete="off">
+                <label for="extraccio">Extraction type</label><input type="text" name="extraccio" id="extraccio" placeholder="" autocomplete="off">
+                <label for="dataDesco">Thaw date</label><input type="date" name="dataDesco" id="dataDesco" placeholder="" autocomplete="off">
+                <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="" autocomplete="off">
+                <label for="comentaris">Additional comments</label><textarea name="comentaris" id="comentaris"></textarea>
+                <div class="boton"><button type="submit">Save</button></div>
+            </form>
+END;
+    }
+    else {
+        // Formulario completado para editar una saliva ya existente
+        print "Pending to create the form";
+    }
+}
+
+function ALL_other($other = NULL) {
+    //Formulario vacio para nueva entrada
+    if (is_null($other)) {
+        print <<<END
+            <form>
+                <label for="idijc">ID IJC</label><input type="text" name="idijc" placeholder="Internal ID" autocomplete="off">
+                <label for="tipusMostra">Sample type</label><input type="text" name="tipusMostra" id="tipusMostra" placeholder="" autocomplete="off">
+                <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="" autocomplete="off">
+                <label for="comentaris">Additional comments</label><textarea name="comentaris" id="comentaris"></textarea>
+                <div class="boton"><button type="submit">Save</button></div>
+            </form>
+END;
+    }
+    else {
+        print "SORRY, UNDER CONSTRUCTION";
+    }
+}
 ?>
