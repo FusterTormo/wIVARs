@@ -165,33 +165,63 @@ END;
 }
 
 function ALL_dna($dna = NULL) {
-  // Formulario vacio
-  if (is_null($dna)) {
-    print <<<END
-    <form>
-      <label for="idijc">IJC ID</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
-      <label for="idext">External ID</label><input type="text" name="idext" id="idext" placeholder="External ID" autocomplete="off">
-      <label for="data">Arrival/extraction date</label><input type="date" name="data" id="data" autocomplete="off">
-      <label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="DNA origin" autocomplete="off">
-      <label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="" autocomplete="off">
-      <label for="teixit">Tissue</label><input type="text" id="teixit" name="teixit" placeholder="" autocomplete="off">
-      <label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="" autocomplete="off">
-      <label for="tipusExtraccio">Type of extraction</label><input type="text" name="tipusExtraccio" id="tipusExtraccio" placeholder="" autocomplete="off">
-      <label for="nanodrop">Nanodrop</label><input type="text" name="nanodrop" id="nanodrop" placeholder="" autocomplete="off">
-      <label for="ratio280">Ratio 260/280</label><input type="number" name="ratio280" id="ratio280" placeholder="" autocomplete="off">
-      <label for="ratio230">Ratio 260/230</label><input type="number" name="ratio230" id="ratio230" placeholder="" autocomplete="off">
-      <label for="abs320">Abs 320</label><input type="number" name="abs320" id="abs320" placeholder="" autocomplete="off">
-      <label for="qbit">Qbit</label><input type="text" name="qbit" id="qbit" placeholder="" autocomplete="off">
-      <label for="tape">Tape</label><input type="text" name="tape" id="tape" placeholder="" autocomplete="off">
-      <label for="volum">Volume</label><input type="text" name="volum" id="volum" placeholder="" autocomplete="off">
-      <label for="comentari">Additional comments</label><textarea name="comentari" id="comentari"></textarea>
-      <div class="boton"><button type="submit">Save</button></div>
-    </form>
+    // Formulario vacio
+    if (is_null($dna)) {
+        print <<<END
+        <form>
+            <label for="idijc">IJC ID</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
+            <label for="idext">External ID</label><input type="text" name="idext" id="idext" placeholder="External ID" autocomplete="off">
+            <label for="data">Arrival/extraction date</label><input type="date" name="data" id="data" autocomplete="off">
+            <label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="DNA origin" autocomplete="off">
+            <label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="" autocomplete="off">
+            <label for="teixit">Tissue</label><input type="text" id="teixit" name="teixit" placeholder="" autocomplete="off">
+            <label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="" autocomplete="off">
+            <label for="tipusExtraccio">Type of extraction</label><input type="text" name="tipusExtraccio" id="tipusExtraccio" placeholder="" autocomplete="off">
+            <label for="nanodrop">Nanodrop</label><input type="text" name="nanodrop" id="nanodrop" placeholder="" autocomplete="off">
+            <label for="ratio280">Ratio 260/280</label><input type="number" name="ratio280" id="ratio280" placeholder="" autocomplete="off">
+            <label for="ratio230">Ratio 260/230</label><input type="number" name="ratio230" id="ratio230" placeholder="" autocomplete="off">
+            <label for="abs320">Abs 320</label><input type="number" name="abs320" id="abs320" placeholder="" autocomplete="off">
+            <label for="qbit">Qbit</label><input type="text" name="qbit" id="qbit" placeholder="" autocomplete="off">
+            <label for="tape">Tape</label><input type="text" name="tape" id="tape" placeholder="" autocomplete="off">
+            <label for="volum">Volume</label><input type="text" name="volum" id="volum" placeholder="" autocomplete="off">
+            <label for="comentari">Additional comments</label><textarea name="comentari" id="comentari"></textarea>
+            <div class="boton"><button type="submit">Save</button></div>
+        </form>
 END;
-  }
-  else {
-    //Formulario completado con un dna para editar
-    print "Pending to DO";
-  }
+    }
+    else {
+        //Formulario completado con un dna para editar
+        print "Pending to DO";
+    }
+}
+
+function ALL_rna($rna = NULL) {
+    // Formulario vacio
+    if (is_null($rna)) {
+        print <<<END
+            <form>
+                <label for="idijc">IJC ID</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
+                <label for="idext">External ID</label><input type="text" name="idext" id="idext" placeholder="External ID" autocomplete="off">
+                <label for="data">Arrival/extraction date</label><input type="date" name="data" id="data" autocomplete="off">
+                <label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="DNA origin" autocomplete="off">
+                <label for="puntDX">Disease step</label><input type="text" name="puntDX" id="puntDX" placeholder="" autocomplete="off">
+                <label for="teixit">Tissue</label><input type="text" id="teixit" name="teixit" placeholder="" autocomplete="off">
+                <label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="" autocomplete="off">
+                <label for="nanodrop">Nanodrop</label><input type="text" name="nanodrop" id="nanodrop" placeholder="" autocomplete="off">
+                <label for="ratio280">Ratio 260/280</label><input type="number" name="ratio280" id="ratio280" placeholder="" autocomplete="off">
+                <label for="ratio230">Ratio 260/230</label><input type="number" name="ratio230" id="ratio230" placeholder="" autocomplete="off">
+                <label for="abs320">Abs 320</label><input type="number" name="abs320" id="abs320" placeholder="" autocomplete="off">
+                <label for="qbit">Qbit</label><input type="text" name="qbit" id="qbit" placeholder="" autocomplete="off">
+                <label for="tape">Tape</label><input type="text" name="tape" id="tape" placeholder="" autocomplete="off">
+                <label for="volum">Volume</label><input type="text" name="volum" id="volum" placeholder="" autocomplete="off">
+                <label for="comentari">Additional comments</label><textarea name="comentari" id="comentari"></textarea>
+                <div class="boton"><button type="submit">Save</button></div>
+            </form>
+END;
+    }
+    else {
+        //Formulario completado con un dna para editar
+        print "Pending to DO";
+    }
 }
 ?>
