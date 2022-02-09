@@ -142,9 +142,9 @@ a:hover {
 }
 
 .fila::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .modal {
