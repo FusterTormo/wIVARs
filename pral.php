@@ -29,7 +29,7 @@ if (isset($_SESSION["u"])) {
 			<li><a href="muestras.php?newSamp=true">Patient</a></li>
 			<li><a href="crios.php?newCryo=true">Cryovial</a></li>
 			<li><a href="dnas.php?newDna=true">DNA</a></li>
-			<li>RNA</li>
+			<li><a href="rnas.php?newRna=true">RNA</a></li>
 			<li>Saliva</li>
 			<li>Other</li>
 		</ul>
