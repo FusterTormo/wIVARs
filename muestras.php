@@ -65,7 +65,7 @@ function crearMuestra() {
 	<link rel="stylesheet" href="estilos/base.css">
 	<link rel="stylesheet" href="estilos/formulario.css">
 	<script src="javascript/jquery-3.6.0.min.js"></script>
-  <script src="javascript/muestras.js"></script>
+    <script src="javascript/muestras.js"></script>
 </head>
 <body>
 END;
