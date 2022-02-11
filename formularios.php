@@ -230,6 +230,7 @@ function ALL_saliva($saliva = NULL) {
     if (is_null($saliva)) {
         print <<<END
             <form>
+                <label for="idPacient">Sample IJC ID</label><input type="text" name="idPacient" id="idPacient" autocomplete="off">
                 <label for="idijc">ID IJC</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
                 <label for="data">Date</label><input type="date" name="data" id="data" placeholder="Arrival date" autocomplete="off">
                 <label for="origen">Origin</label><input type="text" name="origen" id="origen" placeholder="" autocomplete="off">
@@ -252,6 +253,7 @@ function ALL_other($other = NULL) {
     if (is_null($other)) {
         print <<<END
             <form>
+                <label for="idPacient">Sample IJC ID</label><input type="text" name="idPacient" id="idPacient" autocomplete="off">
                 <label for="idijc">ID IJC</label><input type="text" name="idijc" placeholder="Internal ID" autocomplete="off">
                 <label for="tipusMostra">Sample type</label><input type="text" name="tipusMostra" id="tipusMostra" placeholder="" autocomplete="off">
                 <label for="guardatEn">Stored in</label><input type="text" name="guardatEn" id="guardatEn" placeholder="" autocomplete="off">

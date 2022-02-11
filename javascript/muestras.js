@@ -30,10 +30,12 @@ $(document).ready(function(){
 		$(msg).css({"color": "#6CC24A", "width" : "30%", "margin": "40px auto", "font-size" : "1.5vw"});
 		//Añadir texto, identificador y estilos a los botones
 		$(boton1).html("<a href='crios.php?newCryo=true&newSamp=" + idnuevo + "'>Add Cryovial</a>").attr("id", "addCryo").css("float", "none");
-		$(boton2).html("Add Saliva").attr("id", "addSaliva").css("float", "none");
-		$(boton3).html("Add Other").attr("id", "addOther").css("float", "none");
+		$(boton2).html("<a href='salivas.php?newSaliva=true&newSamp=" + idnuevo + "'>Add Saliva</a>").attr("id", "addSaliva").css("float", "none");
+		$(boton3).html("<a href='others.php?newOther=true&newSamp=" + idnuevo + "'>Add Other</a>").attr("id", "addOther").css("float", "none");
 		$(boton4).html("<a href='muestras.php?newSamp=true'>Save new sample</a>").attr("id", "guardarSample").css("float", "none");
 		$(boton1).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
+		$(boton2).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
+		$(boton3).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
 		$(boton4).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
 		$(cont).append($(boton1));
 		$(cont).append($(boton2));
