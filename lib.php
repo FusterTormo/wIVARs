@@ -10,9 +10,9 @@ function getNavigationBar($usuario) {
         	<li><a href="muestras.php">Samples</a></li>
         	<li><a href="crios.php">Cryos</a></li>
         	<li><a href="dnas.php">DNAs</a></li>
-        	<li><a href="">RNAs</a></li>
-        	<li><a href="">Salivas</a></li>
-        	<li><a href="">Others</a></li>
+        	<li><a href="rnas.php">RNAs</a></li>
+        	<li><a href="salivas.php">Salivas</a></li>
+        	<li><a href="others.php">Others</a></li>
         	<!-- <li title="View all WGS done">WGS</li>
         	<li title="View all gene panels done">TDS</li>
         	<li title="View all RNA done">RNA-seq</li>	-->
