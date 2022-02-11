@@ -7,15 +7,12 @@ function getNavigationBar($usuario) {
         print <<<END
         <ul>
             <li><a href="pral.php">Home</a></li>
-        	<li><a href="muestras.php">Samples</a></li>
-        	<li><a href="crios.php">Cryos</a></li>
-        	<li><a href="dnas.php">DNAs</a></li>
-        	<li><a href="rnas.php">RNAs</a></li>
-        	<li><a href="salivas.php">Salivas</a></li>
+        	<li title="View all samples stored in the database"><a href="muestras.php">Samples</a></li>
+        	<li title="View all cryovials stored in the database"><a href="crios.php">Cryos</a></li>
+            <li title="View all salivas stored in the database"><a href="salivas.php">Salivas</a></li>
         	<li><a href="others.php">Others</a></li>
-        	<!-- <li title="View all WGS done">WGS</li>
-        	<li title="View all gene panels done">TDS</li>
-        	<li title="View all RNA done">RNA-seq</li>	-->
+        	<li title="View all DNAs stored in the database"><a href="dnas.php">DNAs</a></li>
+        	<li title="View all RNAs stored in the database"><a href="rnas.php">RNAs</a></li>
         	<li title="View variants stored"><a href="variantes.php">Variants</a></li>
             <li style="float: right"><a href="salir.php">Log out</a></li>
         </ul>
