@@ -36,6 +36,7 @@ function crearSaliva() {
                 <link rel="stylesheet" href="estilos/base.css">
                 <link rel="stylesheet" href="estilos/formulario.css">
                 <script src="javascript/jquery-3.6.0.min.js"></script>
+                <script src="javascript/salivas.js"></script>
             </head>
     <body>
 END;
@@ -53,6 +54,29 @@ END;
 }
 
 function listaSalivas() {
-    print "UNDER CONSTRUCTION";
+    print <<<END
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Salivas</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="estilos/base.css">
+            <link rel="stylesheet" href="estilos/formulario.css">
+            <script src="javascript/jquery-3.6.0.min.js"></script>
+        </head>
+        <body>
+            <header><h1>Salivas stored in database</h1></header>
+            <nav>
+END;
+    getNavigationBar($_SESSION["u"]);
+    print <<<END
+	       </nav>
+            <section>
+                Under construction. Pending to prepare the list of others
+	       </section>
+        </body>
+    </html>
+END;
 }
 ?>
