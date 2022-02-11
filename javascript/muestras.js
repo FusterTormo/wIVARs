@@ -14,7 +14,8 @@ $(document).ready(function(){
 		e.preventDefault();
 		var enviar = true;
 		//TODO Validar el formulario
-		//Enviar y guardar los datos en la base de datos
+		//Enviar y guardar los datos en la base de datos. Comprobar que se ha guardado correctamente
+		var idnuevo = $("#idijc").val();
 		//Preguntar si se quieren añadir crioviales, pellets o salivas
 		$("form[name=newMuestra]").hide();
 		var cont = document.createElement("div");
@@ -28,10 +29,11 @@ $(document).ready(function(){
 		$(msg).html("Sample stored sucessfully<br>");
 		$(msg).css({"color": "#6CC24A", "width" : "30%", "margin": "40px auto", "font-size" : "1.5vw"});
 		//Añadir texto, identificador y estilos a los botones
-		$(boton1).html("Add Cryovial").attr("id", "addCryo").css("float", "none");
+		$(boton1).html("<a href='crios.php?newCryo=true&newSamp=" + idnuevo + "'>Add Cryovial</a>").attr("id", "addCryo").css("float", "none");
 		$(boton2).html("Add Saliva").attr("id", "addSaliva").css("float", "none");
 		$(boton3).html("Add Other").attr("id", "addOther").css("float", "none");
 		$(boton4).html("<a href='muestras.php?newSamp=true'>Save new sample</a>").attr("id", "guardarSample").css("float", "none");
+		$(boton1).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
 		$(boton4).find("a").css({"text-decoration" : "none", "color" : "#FFFFFF"});
 		$(cont).append($(boton1));
 		$(cont).append($(boton2));
