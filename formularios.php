@@ -169,6 +169,7 @@ function ALL_dna($dna = NULL) {
     if (is_null($dna)) {
         print <<<END
         <form>
+            <label for="idPacient">Patient IJC ID</label><input type="text" id="idPacient" name="idPacient" autocomplete="off">
             <label for="idijc">IJC ID</label><input type="text" name="idijc" id="idijc" placeholder="Internal ID" autocomplete="off">
             <label for="idext">External ID</label><input type="text" name="idext" id="idext" placeholder="External ID" autocomplete="off">
             <label for="data">Arrival/extraction date</label><input type="date" name="data" id="data" autocomplete="off">
@@ -177,6 +178,11 @@ function ALL_dna($dna = NULL) {
             <label for="teixit">Tissue</label><input type="text" id="teixit" name="teixit" placeholder="" autocomplete="off">
             <label for="percentBlasts">Blasts percent</label><input type="number" name="percentBlasts" id="percentBlasts" placeholder="" autocomplete="off">
             <label for="tipusExtraccio">Type of extraction</label><input type="text" name="tipusExtraccio" id="tipusExtraccio" placeholder="" autocomplete="off">
+            <label for="disponible">Available?</label><select name="disponible" id="disponible">
+                <option value="" selected></option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
             <label for="nanodrop">Nanodrop</label><input type="text" name="nanodrop" id="nanodrop" placeholder="" autocomplete="off">
             <label for="ratio280">Ratio 260/280</label><input type="number" name="ratio280" id="ratio280" placeholder="" autocomplete="off">
             <label for="ratio230">Ratio 260/230</label><input type="number" name="ratio230" id="ratio230" placeholder="" autocomplete="off">
