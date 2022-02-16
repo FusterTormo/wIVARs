@@ -31,7 +31,7 @@ $(document).ready(function(){
 		$(msg).css({"color": "#6CC24A", "width" : "30%", "margin": "40px auto", "font-size" : "1.5vw"});
 		//Añadir texto, identificador y estilos a los botones
 		$(boton1).html("<a href='crios.php?newCryo=true&newSamp=" + idnuevo + "'>Add Cryovial</a>").attr("id", "addCryo");
-		$(boton2).html("<a href='dnas?newDna=true&newSamp=" + idnuevo + "'>Add DNA</a>").attr("id", "addDna");
+		$(boton2).html("<a href='dnas.php?newDna=true&newSamp=" + idnuevo + "'>Add DNA</a>").attr("id", "addDna");
 		$(boton3).html("<a href='salivas.php?newSaliva=true&newSamp=" + idnuevo + "'>Add Saliva</a>").attr("id", "addSaliva");
 		$(boton4).html("<a href='others.php?newOther=true&newSamp=" + idnuevo + "'>Add Other</a>").attr("id", "addOther");
 		$(boton5).html("<a href='muestras.php?newSamp=true'>Save new sample</a>").attr("id", "guardarSample");
