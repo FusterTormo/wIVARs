@@ -2,6 +2,11 @@
 /**
  * Libreria de formularios de cada una de las tablas de la base de datos
  */
+
+/**
+ * Escribe en pantalla el formulario con los datos que se guardan en la tabla muestra
+ * @param $cont array Datos de una fila de la tabla de muestra. Cuando se pasa este dato, la funcion lo incrusta en el formulari para que se pueda editar
+*/
 function ALL_muestra($cont = NULL) {
     if (is_null($cont)) {
         print <<<END
@@ -92,6 +97,10 @@ END;
     }
 }
 
+/**
+ * Escribe por pantalla el formulario que contiene todos los datos de la tabla cryovial de la base de datos de ALL
+ * @param $cr array Fila de la tabla criotubo. Cuando se pasa por parametro, la funcion lo incruta en el formulario para permitir editar el registro
+*/
 function ALL_cryo($cr = NULL) {
     if (is_null($cr)) {
         print <<<END
@@ -164,6 +173,10 @@ END;
     }
 }
 
+/**
+ * Escribe por pantalla el formulario que contiene todos los datos de la tabla DNA de la base de datos de ALL
+ * @param $dna array Fila de la tabla dna. Cuando se pasa por parametro, la funcion lo incrusta en el formulario para permitir editar el registro
+*/
 function ALL_dna($dna = NULL) {
     // Formulario vacio
     if (is_null($dna)) {
@@ -196,11 +209,15 @@ function ALL_dna($dna = NULL) {
 END;
     }
     else {
-        //Formulario completado con un dna para editar
+        //Mismo formulario, pero con los datos pasados por parametro incrustados dentro para editar
         print "Pending to DO";
     }
 }
 
+/**
+ * Escribe por pantalla el formulario que contiene todos los datos de la tabla RNA de la base de datos de ALL
+ * @param $rna array Fila de la tabla rna. Cuando se pasa por parametro, la funcion lo incrusta en el formulario para permitir editar el registro
+*/
 function ALL_rna($rna = NULL) {
     // Formulario vacio
     if (is_null($rna)) {
@@ -226,11 +243,15 @@ function ALL_rna($rna = NULL) {
 END;
     }
     else {
-        //Formulario completado con un dna para editar
+        //Mismo formulario, pero con los datos pasados por parametro incrustados dentro para editar
         print "Pending to DO";
     }
 }
 
+/**
+ * Escribe por pantalla el formulario que contiene todos los datos de la tabla saliva de la base de datos de ALL
+ * @param $saliva array Fila de la tabla rna. Cuando se pasa por parametro, la funcion lo incrusta en el formulario para permitir editar el registro
+*/
 function ALL_saliva($saliva = NULL) {
     // Formulario vacio para nueva saliva
     if (is_null($saliva)) {
@@ -249,11 +270,15 @@ function ALL_saliva($saliva = NULL) {
 END;
     }
     else {
-        // Formulario completado para editar una saliva ya existente
+        // Mismo formulario pero rellenado con los datos pasador por parametro para editar una saliva ya existente
         print "Pending to create the form";
     }
 }
 
+/**
+* Escribe por pantalla el formulario que contiene todos los datos de la tabla other de la base de datos de ALL
+ * @param $other array Fila de la tabla rna. Cuando se pasa por parametro, la funcion lo incrusta en el formulario para permitir editar el registro
+*/
 function ALL_other($other = NULL) {
     //Formulario vacio para nueva entrada
     if (is_null($other)) {
@@ -269,6 +294,7 @@ function ALL_other($other = NULL) {
 END;
     }
     else {
+        // Mismo formulario pero rellenado con los datos pasados por parametro para editar el registro
         print "SORRY, UNDER CONSTRUCTION";
     }
 }
