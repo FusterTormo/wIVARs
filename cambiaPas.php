@@ -13,6 +13,11 @@
     paginaNormal($usuario);
   }
 
+/**
+ * Muestra el codigo html para ver la pagina normal de cambio de contraseña. Esta pagina se muestra cuando no se han pasado datos a
+ * la pagina por $GET
+ * @param $usuario String Nombre del usuario que tiene que cambiar la contraseña. Se incrusta en el primer input del formulario
+*/
 function paginaNormal($usuario) {
   print <<<END
   <!DOCTYPE html>
@@ -54,6 +59,9 @@ END;
 END;
 }
 
+/**
+ * Muestra el codigo html para notificiar al usuario que se ha cambiado la contraseña de su usuario
+*/
 function paginaExito() {
   print <<<END
   <!DOCTYPE html>
@@ -76,6 +84,10 @@ function paginaExito() {
 END;
 }
 
+/**
+ * Muestra al usuario una pagina que explica el error que puede haber ocurrido cuando se iba a cambiar la contraseña
+ * @param $mensaje String Mensaje de error que se ha recibido al intentar validar el cambio de contraseña del usuario
+*/
 function paginaError($mensaje) {
   print <<<END
   <!DOCTYPE html>
