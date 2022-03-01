@@ -20,7 +20,9 @@ else {
     error_sesion();
 }
 
-
+/**
+ * Muestra el formulario para editar una muestra cuyo identificador se ha pasado por GET (sampID). La funcion llama a ALL_muestra (formularios.php) para que rellene el formulario
+ */
 function editarMuestra() {
     //Formulario para mostrar/editar una unica muestra
     print <<<END
@@ -53,6 +55,9 @@ END;
 END;
 }
 
+/**
+ * Muestra el formulario para guardar una nueva muestra en la base de datos. Este formulario se recoge invocando a la funcion ALL_muestra (formularios.php)
+ */
 function crearMuestra() {
     //Formulario vacio para crear una nueva muestra
     print <<<END
@@ -82,6 +87,9 @@ END;
 END;
 }
 
+/**
+ * Muestra una tabla con las muestras guardadas en la base de datos
+ */
 function listaMuestras() {
     //Cuando no se ha buscado una muestra (no hay variables pasadas por GET), la pagina es una tabla con todas las muestras guardadas en la base de datos
     print <<<END
