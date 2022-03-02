@@ -102,9 +102,7 @@ function getAllMuestras($usuario) {
         $resultado = array();
         $it = 0;
         foreach ($consulta as $r) {
-            $resultado[$it] = array("ID_IJC" => $r["id_ijc"], "ID_PETHEMA" => $r["id_pethema"], "ID_Salamanca" => $r["id_salamanca"], "Initials" => $r["inicials"], "Gender" => $r["sexe"],
-                "Age" => $r["edat"], "Hospital" => $r["hospital"], "Email" => $r["mail_contacte"], "Protocol" => $r["protocol"], "Diagnostic" => $r["diagnostic"],
-                "DX_Date" => $r["data_diagnostic"], "CI" => $r["ci"]);
+            $resultado[$it] = array("ID_IJC" => $r["id_ijc"], "Initials" => $r["inicials"], "Protocol" => $r["protocol"], "Diagnostic" => $r["diagnostic"]);
             $it ++;
         }
     }
