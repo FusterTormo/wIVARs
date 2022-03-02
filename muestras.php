@@ -139,15 +139,16 @@ END;
     $header = array_shift($datos);
     print "<div class='fila' id='cabecera'>";
     foreach ($header as $h) {
-        print "<div class='negreta celda'>$h</div>";
+        print "<div class='negreta celda' title='$h'>$h</div>";
     }
-    print "<div class='negreta celda'>Cryos</div></div>";
+    print "<div class='negreta celda'>Cryovials</div><div class='negreta celda'>DNAs</div></div>";
     foreach ($datos as $fila) {
         print "<div class='fila'>";
         foreach ($fila as $celda) {
-            print "<div class='celda'>$celda</div>";
+            print "<div class='celda' title='$celda'>$celda</div>";
         }
-        print "<div class='celda'><a href='crios.php?sampID=" . $fila[0] . "'>View Cryovials</a></div></div>";
+        print "<div class='celda'><a href='crios.php?sampID=" . $fila[0] . "'>View Cryovials</a></div>";
+        print "<div class='celda'><a href='dnas.php?sampID=" . $fila[0] . "'>View DNAs</a></div></div>";
     }
     print <<<END
 	</section>
